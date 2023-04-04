@@ -12,7 +12,7 @@ It will take approximately 60 min and it has three activities:
 >
 
 ## Lab 1: 
-## Fix VM noboot issue caused by corrupt Initrd
+### Fix VM noboot issue caused by corrupt Initrd
 
 #### Instructions
 
