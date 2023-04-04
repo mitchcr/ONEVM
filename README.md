@@ -16,6 +16,11 @@ It will take approximately 60 min and it has three activities:
 
 On this Lab you'll be required to 
 
+
+#### Symptom
+
+[initramfs file corrupted]()
+
 #### Instructions
 
 Deploy the RHEL 7.9 Broken VM using the link below: 
