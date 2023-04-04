@@ -10,6 +10,7 @@ It will take approximately 60 min and it has three activities:
 > 2. Fix VM noboot issue caused by missing hv_storvsc of LIS driver in Initrd.
 > 3. Fix VM noboot issue caused by missing LIS driver in Initrd.
 >
+
 ## Lab 1: Fix VM noboot issue caused by corrupt Initrd
 
 #### Instructions
