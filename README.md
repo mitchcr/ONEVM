@@ -19,7 +19,7 @@ On this Lab you'll be required to
 
 #### Symptom
 
-[![initramfs file corrupted](https://github.com/kaalvara/initramfs/blob/main/GitHub%20-%20initramfs%20-%20error.png)]
+![initramfs file corrupted](https://github.com/kaalvara/initramfs/blob/main/GitHub%20-%20initramfs%20-%20error.png)
 
 #### Instructions
 
