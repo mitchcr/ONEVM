@@ -1,6 +1,8 @@
 # Greater Insight Initrd Lab
 
 About this Lab:
+
+
 This Lab was created for Greater Insight Initrd.
 It will take approximately 60 min and it has three activities:  
 
