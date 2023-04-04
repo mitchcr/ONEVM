@@ -16,11 +16,11 @@ It will take approximately 60 min and it has three activities:
 On this Lab you'll be required to 
 
 
-#### Symptom
+### Symptom
 
 ![initramfs file corrupted](https://github.com/kaalvara/initramfs/blob/main/GitHub%20-%20initramfs%20-%20error.png)
 
-#### How to fix it? 
+### How to fix it? 
 
 Deploy the RHEL 7.9 Broken VM using the link below: 
 
