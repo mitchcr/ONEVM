@@ -32,12 +32,12 @@ Once the VM has been deployed and you confirmed it is in the problematic state a
 
 </details>
 
-#### Method 2
+#### Method 1
 
 <details close>
 
 <summary>Click here to expand or collapse this section</summary>
->
+
 - [*chroot*][def], 
   
  1. After creating Nested environment following [*chroot*][def] steps please proceed to [Step 2](#2.).
