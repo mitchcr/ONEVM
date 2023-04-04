@@ -40,15 +40,15 @@ Once the VM has been deployed and you confirmed it is in the problematic state a
 
 - [*chroot*][def], 
   
- 1. After creating Nested environment following [*chroot*][def] steps please proceed to [Step 2](#2.).
+   1. After creating Nested environment following [*chroot*][def] steps please proceed to [Step 2](#2.).
 
- 2. Take a backup of the Old Initrd image and Rebuild the Initrd for the current kernel using the command below:
+   2. Take a backup of the Old Initrd image and Rebuild the Initrd for the current kernel using the command below:
  
           dracut -f -v <initramfsversion> <kernelversion>
 
- 3. Exit chroot and unmount the OS disk copy from the troubleshooting VM, after you've done that, please reassemble the original VM by switching the OS disk.
+   3. Exit chroot and unmount the OS disk copy from the troubleshooting VM, after you've done that, please reassemble the original VM by switching the OS disk.
 
- 4. The VM should be now able to boot after Initrd configuration gets changed.
+   4. The VM should be now able to boot after Initrd configuration gets changed.
  
  </details>
 
