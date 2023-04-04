@@ -27,7 +27,8 @@ Once the VM has been deployed and you confirmed it is in the problematic state a
 <summary>Click here to expand or collapse this section</summary>
 
 - [*Azure ALAR*][def2]
-      If you are going to use [*Azure ALAR*][def2] steps in order to create the troubleshooting VM and fix this issue; no additional steps are required. Please just confirm the Original broken VM is now working as expected.
+  
+     If you are going to use [*Azure ALAR*][def2] steps in order to create the troubleshooting VM and fix this issue; no additional steps are required. Please just confirm the Original broken VM is now working as expected.
 
 </details>
 
