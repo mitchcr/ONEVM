@@ -21,7 +21,7 @@ On this Lab you'll be required to
 
 ![initramfs file corrupted](https://github.com/kaalvara/initramfs/blob/main/GitHub%20-%20initramfs%20-%20error.png)
 
-#### Instructions
+#### How to fix it? 
 
 Deploy the RHEL 7.9 Broken VM using the link below: 
 
@@ -31,7 +31,7 @@ Once the VM has been deployed and you confirmed it is in the problematic state a
  
 ### Methods to create the Nested environment needed to fix the broken VM:
 
-#### Method 1
+#### Method 1 - ALAR
 
 <details close>
 
@@ -44,7 +44,7 @@ Once the VM has been deployed and you confirmed it is in the problematic state a
 
 </details>
 
-#### Method 2
+#### Method 2 - chroot
 
 <details close>
 
