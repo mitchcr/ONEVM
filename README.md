@@ -38,8 +38,8 @@ Once the VM has been deployed and you confirmed it is in the problematic state a
 
 <summary>Click here to expand or collapse this section</summary>
 
-
-- [*chroot*][def], 
+- 
+  [*chroot*][def], 
   
  1. After creating Nested environment following [*chroot*][def] steps please proceed to [Step 2](#2.).
 
