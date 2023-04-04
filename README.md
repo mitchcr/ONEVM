@@ -32,7 +32,7 @@ Once the VM has been deployed and you confirmed it is in the problematic state a
 
 </details>
 
-#### Method 1
+#### Method 2
 
 <details close>
 
