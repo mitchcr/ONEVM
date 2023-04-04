@@ -18,7 +18,7 @@ Deploy the RHEL 7.9 Broken VM using the link below:
 
 Once the VM has been deployed and you confirmed it is in the problematic state attach the problematic OS Disk copy to troubleshooting VM created using your preferred method:
  
-##### Methods to create the Nested environment needed to fix the broken VM:
+#### Methods to create the Nested environment needed to fix the broken VM:
 
 #### Method 1
 
