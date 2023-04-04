@@ -40,7 +40,7 @@ Once the VM has been deployed and you confirmed it is in the problematic state a
 
 - [*chroot*][def], 
   
-   1. After creating Nested environment following [*chroot*][def] steps please proceed to [step 2](#2.).
+   1. After creating Nested environment following [*chroot*][def] steps please proceed to [step 2](#ii.).
 
    2. Take a backup of the Old Initrd image and Rebuild the Initrd for the current kernel using the command below:
  
