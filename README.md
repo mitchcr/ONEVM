@@ -13,9 +13,11 @@ It will take approximately 60 min and it has three activities:
 
 ## Lab 1: Fix VM noboot issue caused by corrupt Initrd
 
-On this Lab the initramfs file has been corrupted. 
-Your task is to set a Nested environment using one of the Solution Methods provided, in order to rebuild the initramfs file.
-Once the initramfs file has been restore, make the necessary configuration changes to ensure the VM boots up properly.  
+On this Lab the initramfs file has been corrupted.
+
+Your task is to set a Nested environment using one of the Solution Methods provided in order to regenerate the initramfs file.
+
+Once the initramfs file has been restored, make the necessary configuration changes to ensure the VM boots up properly.  
 
 ### Symptom
 
