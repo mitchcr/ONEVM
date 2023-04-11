@@ -15,7 +15,7 @@ It will take approximately 60 min and it has three activities:
 
 *On this Lab the **initramfs file** for the VM got corrupted causing the VM to enter into a non-boot state.* 
 
-*Your task is to set a Nested environment using one of the Solution Methods provided in order to regenerate the initramfs file.*
+*Your task is to set a Nested environment using one of the Solution Methods provided below in order to regenerate the initramfs file.*
 
 *Once the initramfs file has been restored, make the necessary configuration changes to ensure the VM boots up properly.*
 
@@ -31,7 +31,7 @@ Deploy the RHEL 7.9 Broken VM using the link below:
 
 Once the VM has been deployed and you confirmed it is in the problematic state please attach the problematic OS Disk copy to a troubleshooting VM created using your preferred method:
  
-### Methods to create the Nested environment needed to fix the broken VM:
+### Possible methods to create the Nested environment needed to fix the broken VM:
 
 #### Method 1 - ALAR
 
@@ -59,6 +59,8 @@ Once the VM has been deployed and you confirmed it is in the problematic state p
    2. Take a backup of the Old Initrd image and Rebuild the Initrd for the current kernel using the command below:
  
           dracut -f -v <initramfsversion> <kernelversion>
+  
+       *Remember to include the correct path on the command*
 
    3. Exit chroot and unmount the OS disk copy from the troubleshooting VM, after you've done that, please reassemble the original VM by switching the OS disk.
 
