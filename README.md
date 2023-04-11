@@ -56,17 +56,15 @@ Once the VM has been deployed and you confirmed it is in the problematic state p
   
    1. After creating Nested environment following [*chroot*][def] steps please proceed to [step 2](#ii.).
 
-   2. Take a backup of the Old Initrd image and Rebuild the Initrd for the current kernel using the command below:
+   2. Take a backup of the Old Initrd image and Rebuild the Initrd for the current kernel using the command below (*Remember to include the correct path on the command*):
  
           dracut -f -v <initramfsversion> <kernelversion>
-  
-       *Remember to include the correct path on the command*
 
    3. Exit chroot and unmount the OS disk copy from the troubleshooting VM, after you've done that, please reassemble the original VM by switching the OS disk.
 
    4. The VM should be now able to boot after Initrd configuration gets changed.
- 
- </details>
 
 [def]: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/chroot-environment-linux#using-the-same-lvm-image 
 [def2]: https://github.com/Azure/ALAR
+
+  </details>
