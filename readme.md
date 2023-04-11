@@ -118,7 +118,7 @@ Once the VM has been deployed and you confirmed it is in the problematic state p
  
           #vi /etc/dracut.conf
           add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
-          #dracut -f -v <initramfsversion> <kernelversion>
+          #dracut -f -v <initramfsversion> <kernelversion> :)
 
    3. Exit chroot and unmount the OS disk copy from the troubleshooting VM, after you've done that, please reassemble the original VM by switching the OS disk.
 
