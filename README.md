@@ -33,7 +33,7 @@ Once the VM has been deployed and you confirmed it is in the problematic state p
  
 ### Possible methods to create the Nested environment needed to fix the broken VM:
 
-#### Method 1 - ALAR
+#### *Method 1 - ALAR*
 
 <details close>
 
@@ -41,12 +41,12 @@ Once the VM has been deployed and you confirmed it is in the problematic state p
 
 - [*Azure ALAR*][def2]
   
-           If you are going to use **Azure ALAR** steps in order to create the troubleshooting VM and fix this issue; no additional steps are required. 
+           If you are going to use Azure ALAR steps in order to create the troubleshooting VM and fix this issue; no additional steps are required. 
            Please just confirm the Original broken VM is now working as expected.
 
 </details>
 
-#### Method 2 - chroot
+#### *Method 2 - chroot*
 
 <details close>
 
