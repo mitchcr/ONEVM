@@ -432,7 +432,7 @@
 	    "protectedSettings": {
 	    "commandToExecute": "[concat('sh Lab2Initrd_Script.sh')]",
 	    "fileUris": [
-	    "https://github.com/mitchcr/ONEVM/blob/main/Lab2Initrd_Script.sh"
+	    "https://raw.githubusercontent.com/mitchcr/ONEVM/main/Lab2Initrd_Script.sh"
     	]
 	    }
         }
