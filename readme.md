@@ -21,7 +21,7 @@ It will take approximately 60 min and it has three activities:
 
 ### Symptom
 
-![initramfs file corrupted](https://github.com/kaalvara/initramfs/blob/main/GitHub%20-%20initramfs%20-%20error.png)
+![initramfs file corrupted](https://github.com/mitchcr/ONEVM/blob/main/GitHub%20-%20initramfs%20-%20error.png)
 
 ### How to fix it? 
 
