@@ -431,4 +431,25 @@
       "value": "[format('ssh {0}@{1} -p 2222', parameters('adminUsername'), reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn)]"
     }
   }
+},
+{
+	"name": "[concat(variables('vmName'), '/runLinuxScriptinCSE')]",
+	"type": "Microsoft.Compute/virtualMachines/extensions",
+	"location": "[resourceGroup().location]",
+	"apiVersion": "2019-03-01",
+	"dependsOn": [
+	"[resourceId('Microsoft.Compute/virtualMachines', variables('vmName'))]"
+	],
+	"properties": {
+	"publisher": "Microsoft.Azure.Extensions",
+	"type": "CustomScript",
+	"typeHandlerVersion": "2.1",
+	"autoUpgradeMinorVersion": true,
+	"protectedSettings": {
+	"commandToExecute": "[concat('sudo sh break.sh')]",
+	"fileUris": [
+	"https://github.com/mitchcr/ONEVM/blob/main/Lab2Initrd_Script.sh"
+	]
+	}
+    }
 }
