@@ -11,7 +11,7 @@
     },
     "vm1Name": {
       "type": "string",
-      "defaultValue": "kaalvaravm2test",
+      "defaultValue": "alasinitrdl2",
       "metadata": {
         "description": "Name for the Virtual Machine."
       }
@@ -79,7 +79,7 @@
     "subnetPrefix": "10.0.0.0/24",
     "publicIPAddressNameVM1": "[concat(uniquestring(parameters('vm1Name')), 'publicip')]",
     "publicIPAddressType": "Dynamic",
-    "virtualNetworkName": "kaalvaraVM1vnet",
+    "virtualNetworkName": "alasVM1vnet",
     "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
     "linuxConfiguration": {
       "disablePasswordAuthentication": true,
