@@ -49,7 +49,7 @@
     },
     "customData": {
         "type": "string",
-        "defaultValue": "IyEvYmluL2Jhc2gKZGF0ZSA+IC9ib290L2luaXRyYW1mcy1gdW5hbWUgLXJgLmltZwoKcmVib290Cg==",
+        "defaultValue": "",
         "metadata": {
           "description": "base64 content for cloud-init custom data"
         }
