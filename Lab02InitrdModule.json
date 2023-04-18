@@ -417,25 +417,25 @@
       }
     },
     {
-        "name": "[concat(parameters('vmName'), '/runLinuxScriptinCSE')]",
-	"type": "Microsoft.Compute/virtualMachines/extensions",
-	"location": "[resourceGroup().location]",
-	"apiVersion": "2019-03-01",
-	"dependsOn": [
-	"[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
-	],
-	"properties": {
-	"publisher": "Microsoft.Azure.Extensions",
-	"type": "CustomScript",
-	"typeHandlerVersion": "2.1",
-	"autoUpgradeMinorVersion": true,
-	"protectedSettings": {
-	"commandToExecute": "[concat('sudo sh Lab2Initrd_Script.sh')]",
-	"fileUris": [
-	"https://github.com/mitchcr/ONEVM/blob/main/Lab2Initrd_Script.sh"
-	]
-	}
-    }
+       "name": "[concat(parameters('vmName'), '/runLinuxScriptinCSE')]",
+	    "type": "Microsoft.Compute/virtualMachines/extensions",
+	    "location": "[resourceGroup().location]",
+	    "apiVersion": "2019-03-01",
+	    "dependsOn": [
+	        "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+	    ],
+	    "properties": {
+	    "publisher": "Microsoft.Azure.Extensions",
+	    "type": "CustomScript",
+	    "typeHandlerVersion": "2.1",
+	    "autoUpgradeMinorVersion": true,
+	    "protectedSettings": {
+	    "commandToExecute": "[concat('sudo sh Lab2Initrd_Script.sh')]",
+	    "fileUris": [
+	    "https://github.com/mitchcr/ONEVM/blob/main/Lab2Initrd_Script.sh"
+    	]
+	    }
+        }
     }
   ],
   "outputs": {
