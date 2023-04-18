@@ -27,7 +27,7 @@ It will take approximately 60 min and it has three activities:
 
 Deploy the RHEL 7.9 Broken VM using the link below: 
 
-  [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fkaalvara%2Finitramfs%2Fmain%2Fdeploymenttemplatekaalvara.json%0A)
+  [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://raw.githubusercontent.com/mitchcr/ONEVM/main/deploymenttemplatekaalvara.json)
 
 Once the VM has been deployed and you confirmed it is in the problematic state please attach the problematic OS Disk copy to a troubleshooting VM created using your preferred method:
  
