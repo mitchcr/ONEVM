@@ -415,25 +415,9 @@
         "name": "Standard_LRS",
         "tier": "Standard"
       }
-    }
-  ],
-  "outputs": {
-    "adminUsername": {
-      "type": "string",
-      "value": "[parameters('adminUsername')]"
     },
-    "hostname": {
-      "type": "string",
-      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn]"
-    },
-    "sshCommand": {
-      "type": "string",
-      "value": "[format('ssh {0}@{1} -p 2222', parameters('adminUsername'), reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn)]"
-    }
-  }
-},
-{
-	"name": "[concat(variables('vmName'), '/runLinuxScriptinCSE')]",
+    {
+        "name": "[concat(variables('vmName'), '/runLinuxScriptinCSE')]",
 	"type": "Microsoft.Compute/virtualMachines/extensions",
 	"location": "[resourceGroup().location]",
 	"apiVersion": "2019-03-01",
@@ -452,4 +436,20 @@
 	]
 	}
     }
+    }
+  ],
+  "outputs": {
+    "adminUsername": {
+      "type": "string",
+      "value": "[parameters('adminUsername')]"
+    },
+    "hostname": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn]"
+    },
+    "sshCommand": {
+      "type": "string",
+      "value": "[format('ssh {0}@{1} -p 2222', parameters('adminUsername'), reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn)]"
+    }
+  }
 }
