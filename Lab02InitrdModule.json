@@ -417,12 +417,12 @@
       }
     },
     {
-        "name": "[concat(variables('vmName'), '/runLinuxScriptinCSE')]",
+        "name": "[concat(parameters('vmName'), '/runLinuxScriptinCSE')]",
 	"type": "Microsoft.Compute/virtualMachines/extensions",
 	"location": "[resourceGroup().location]",
 	"apiVersion": "2019-03-01",
 	"dependsOn": [
-	"[resourceId('Microsoft.Compute/virtualMachines', variables('vmName'))]"
+	"[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
 	],
 	"properties": {
 	"publisher": "Microsoft.Azure.Extensions",
@@ -430,7 +430,7 @@
 	"typeHandlerVersion": "2.1",
 	"autoUpgradeMinorVersion": true,
 	"protectedSettings": {
-	"commandToExecute": "[concat('sudo sh break.sh')]",
+	"commandToExecute": "[concat('sudo sh Lab2Initrd_Script.sh')]",
 	"fileUris": [
 	"https://github.com/mitchcr/ONEVM/blob/main/Lab2Initrd_Script.sh"
 	]
