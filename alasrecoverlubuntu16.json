@@ -11,7 +11,7 @@
   "parameters": {
     "vmName": {
       "type": "string",
-      "defaultValue": "abrsbb02",
+      "defaultValue": "alasrecub16",
       "metadata": {
         "description": "The name of you Virtual Machine."
       }
