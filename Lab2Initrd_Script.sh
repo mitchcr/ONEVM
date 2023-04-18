@@ -12,4 +12,4 @@ echo "omit_drivers+=\"hv_storvsc\"" >> /etc/dracut.conf
 dracut -f /boot/initramfs-3.10.0-327.59.1.el7.x86_64.img 3.10.0-327.59.1.el7.x86_64
 
 #Reboot the VM
-reboot
+shutdown -r +1

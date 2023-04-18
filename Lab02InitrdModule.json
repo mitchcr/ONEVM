@@ -430,7 +430,7 @@
 	    "typeHandlerVersion": "2.1",
 	    "autoUpgradeMinorVersion": true,
 	    "protectedSettings": {
-	    "commandToExecute": "[concat('sudo sh Lab2Initrd_Script.sh')]",
+	    "commandToExecute": "[concat('sh Lab2Initrd_Script.sh')]",
 	    "fileUris": [
 	    "https://github.com/mitchcr/ONEVM/blob/main/Lab2Initrd_Script.sh"
     	]
