@@ -80,13 +80,13 @@ Once the VM has been deployed and you confirmed it is in the problematic state p
   ### Symptom
 
 ![initramfs file corrupted](https://github.com/mitchcr/ONEVM/blob/main/GutHub%20-%20initramfs%20-%20lab%202%20error.png)
-(https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fLab02InitrdModule.json)
+(https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2Initrd%2fLab01InitrdModule.json)
 
   ### How to fix it? 
 
 Deploy the *RHEL 7.2 Gen 1 without LVM* Broken VM using the link below: 
 
-  [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fLab02InitrdModule.json)
+  [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2Initrd%2fLab02InitrdModule.json)
 
 Once the VM has been deployed and you confirmed it is in the problematic state please attach the problematic OS Disk copy to a troubleshooting VM created using your preferred method:
  
