@@ -1,5 +1,6 @@
-Repository to hold  ARM templates for Linux Specialist Training
-Modules:
+# Repository to hold  ARM templates for Linux Specialist Training
 
-[Initrd Module Labs]
-(https://github.com/mitchcr/ONEVM/tree/main/Initrd)
+## Modules:
+
+> Initrd Module Labs (https://github.com/mitchcr/ONEVM/tree/main/Initrd)
+
