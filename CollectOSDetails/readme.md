@@ -19,6 +19,6 @@ After this course/module you will be able to:
 
 ## Collect OS Lab
 
-###Instructions
+### Instructions
 
 - Deploy one RHEL VM and one SLES VM. 
