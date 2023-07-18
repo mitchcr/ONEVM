@@ -1,0 +1,22 @@
+# Let's start with Specialist training!
+
+During this training we're going to work in a series of Linux laboratories that will be helping you to understand the covered topics and also will teach you on proper troubleshooting skills. 
+
+## Step 1: WSL2
+To start we need work with WSL2, if you have it installed jump to Step 2.  If you don't have it installed please make sure your desktop meets the required requirements to install WSL2: 
+- Have the possibility to run PowerShell with Administrator privileges.
+- Windows 10, version 2004 or higher or Windows 11.
+- A computer that supports Hyper-V virtualization.
+- The latest instructions and details are located at [Install Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
+
+If your computer passed all the requirements, open a PowerShell window with Administrator rights and run the following command: 
+
+`wsl --install`
+
+**Note:**  This can take up some time depending on your bandwidth access and computer resources.   REBOOT the computer once the second finishes. 
+
+## Step 2: Windows Terminal
+Download and Install Windows Terminal, if you already have it please jump to Step 3.  To download and install Windows Terminal use the following URL: [Windows Terminal](https://aka.ms/terminal)
+
+## Step 3: Install the Azure CLI package
+Launch Windows Terminal and click on the pull-down menu. 
