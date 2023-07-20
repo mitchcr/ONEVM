@@ -20,3 +20,13 @@ Download and Install Windows Terminal, if you already have it please jump to Ste
 
 ## Step 3: Install the Azure CLI package
 Launch Windows Terminal and click on the pull-down menu. 
+![Windows Terminal drop-down menu](https://github.com/mitchcr/ONEVM/blob/main/WSL/images/WindowsTerminal1.png)
+![Windows Terminal OS selection](https://github.com/mitchcr/ONEVM/blob/main/WSL/images/WindowsTerminal2.png)
+
+Select the Linux distribution recently installed. 
+
+- Update to the latest available packages
+- Download and install the Microsoft signing key
+- Add the Azure CLI software repository
+
+Update repository information and install the azure-cli package: 
