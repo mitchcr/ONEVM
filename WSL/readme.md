@@ -91,5 +91,10 @@ You should see in the output 2 entries one for id_rsa and another for id_rsa.pub
 
 `ssh azureuser@<IP_ADDRESS>`
 
+Install a Virtual Machine specifying a particular SKU code and using same keys we generated previously: 
 
+`az vm create --resource-group specialist --name specialistvm2 --admin-user azureuser --image 'RedHat:RHEL:7-RAW:7.7.2019090418' --location eastus --ssh-key-values ~/.ssh/id_rsa.pub`
+
+
+## Your Goal
 
