@@ -73,6 +73,23 @@ Get help with a particular topic:
 
 `az group create --help`
 
+Create a resource group and a virtual machine running Ubuntu: 
+
+__Note__: Replace the home directory \<YOURUSERID\> with your own when you list the generate keys. 
+
+`az group create --name specialist --location eastus`
+
+`az vm create --resource-group specialist --name specialistvm1 --admin-user azureuser --image UbuntuLTS --location eastus --generate-ssh-keys`
+
+__SSH key files are generated and located in /home/\<YOURUSERID\>/.ssh/id_rsa and /home/\<YOURUSERID\>/.ssh/id_rsa.pub second file is the public key.  If you're using a machine without permanent storage, back up your keys to a safe location.__
+
+At the end of the Azure CLI command to create the VM you'll get the VM IP address. Before connecting, let's check on the SSH keys generated: 
+
+`ls -ld /home/<YOURUSERID>/.ssh/id*`
+
+You should see in the output 2 entries one for id_rsa and another for id_rsa.pub.  Now let's connect to the VM using the IP address provided in the output of az vm create command: 
+
+`ssh azureuser@<IP_ADDRESS>`
 
 
 
