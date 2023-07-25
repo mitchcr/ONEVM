@@ -97,4 +97,16 @@ Install a Virtual Machine specifying a particular SKU code and using same keys w
 
 
 ## Your Goal
+At the end of this lab, you should know how to: 
+- Install and configure the Windows System for Linux
+- Install and configure Ubuntu 20.04 LTS for Windows app
+- Install and configure the Windows Terminal app.
+- Install and configure the Azure CLI in WSL2 environment.
+- Create virtual machines and interact with them via the Azure CLI.
 
+## References
+[Install the Azure CLI for Linux Manuall | Microsoft Docs](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt)
+
+[Use the Azure CLI to create a Linux VM | Microsoft Docs](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli)
+
+[JMESPath](https://jmespath.org/)
