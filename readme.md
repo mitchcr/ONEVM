@@ -6,7 +6,7 @@
 
 > [UEFI](https://github.com/mitchr/ONEVM/tree/main/UEFI) 
 
-> [Initrd Module Labs](https://github.com/mitchcr/ONEVM/tree/main/Initrd)
+> [Greater insight in initrd](https://github.com/mitchcr/ONEVM/tree/main/Initrd)
 
 > [VM Recover](https://github.com/mitchcr/ONEVM/tree/main/VMRecover)
 
