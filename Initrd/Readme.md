@@ -1,37 +1,34 @@
 # Greater Insight Initrd Lab
 
-About this Lab:
+## About this Lab
 
 
-This Lab was created for Greater Insight Initrd.
-It will take approximately 60 min and it has three activities:  
+- This Lab was created for Greater Insight Initrd.
+- It will take approximately 60 minutes 
+- This lab has three activities:
+  
+> 1. Fix VM noboot issue caused by corrupt initrd/initramfs.
+> 2. Fix VM noboot issue caused by missing hv_storvsc of LIS driver in initrd/initramfs.
+> 3. Fix VM noboot issue caused by missing LIS driver in initrd/initramfs.
 
-> 1. Fix VM noboot issue caused by corrupt initrd.
-> 2. Fix VM noboot issue caused by missing hv_storvsc of LIS driver in Initrd.
-> 3. Fix VM noboot issue caused by missing LIS driver in Initrd.
->
 
-## Lab 1: Fix VM noboot issue caused by corrupt Initrd
+## Lab 1: Fix VM no boot issue caused by corrupt initrd/initramfs
 
-*On this Lab the **initramfs file** for the VM got corrupted causing the VM to enter into a non-boot state.* 
-
-*Your task is to set a Nested environment using one of the Solution Methods provided below in order to regenerate the initramfs file.*
-
-*Once the initramfs file has been restored, make the necessary configuration changes to ensure the VM boots up properly.*
-
-### Symptom
-
-![initramfs file corrupted](https://github.com/mitchcr/ONEVM/blob/main/Initrd/GitHub%20-%20initramfs%20-%20error.png)
-
-### How to fix it? 
-
-Deploy the RHEL 7.9 Broken VM using the link below: 
+### Instructions
+1. Deploy one RHEL 7.9 Broken VM using the link below: 
 
   [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fInitrd%2fLab01.json)
 
-Once the VM has been deployed and you confirmed it is in the problematic state please attach the problematic OS Disk copy to a troubleshooting VM created using your preferred method:
- 
-### Possible methods to create the Nested environment needed to fix the broken VM:
+2. Check on the VM Serial Console log and Boot Diagnostics screenshot and Serial log to confirm the no-boot status.  VM is in a non-boot scenario due to corrupt initramfs/initrd for current kernel.
+3. Create a Repair VM and attach an OS disk copy of damage VM as data disk.
+4. Create and connect to a chroot environment following the public documentation: [Chroot environment in a Linux rescue VM](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/chroot-environment-linux)
+5. Take a backup of current iniramfs/initrd file using command **cp**
+6. Rebuild initramfs, remember to keep the appropiate path while executing this command:
+
+   `# dracut -f -v initramfs-<kernel=version>.img <kernel-version>
+8.
+9.
+10. Possible methods to create the Nested environment needed to fix the broken VM:
 
 #### *Method 1 - ALAR*
 
