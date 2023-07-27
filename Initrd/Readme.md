@@ -25,10 +25,9 @@
 5. Take a backup of current iniramfs/initrd file using command **cp**
 6. Rebuild initramfs, remember to keep the appropiate path while executing this command:
 
-   `# dracut -f -v initramfs-<kernel=version>.img <kernel-version>
-8.
-9.
-10. Possible methods to create the Nested environment needed to fix the broken VM:
+   `# dracut -f -v initramfs-<kernel=version>.img <kernel-version>`
+7. 
+   Possible methods to create the Nested environment needed to fix the broken VM:
 
 #### *Method 1 - ALAR*
 
