@@ -26,59 +26,28 @@
 6. Rebuild initramfs, remember to keep the appropiate path while executing this command:
 
    `# dracut -f -v initramfs-<kernel=version>.img <kernel-version>`
-7. 
-   Possible methods to create the Nested environment needed to fix the broken VM:
+   
+7. Exit chroot environmet and umount OS disk copy, then proceed to swap the OS disk in the failing VM.
+8. Start the VM and verify the VM is booting as expected.
 
-#### *Method 1 - ALAR*
+**NOTE:**  Another way to fix this scenario is using ALAR scripts you can find more information here: [Use Azure Linux Auto Repair (ALAR) to fix a Linux VM](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/repair-linux-vm-using-alar)
 
-<details close>
 
-<summary>Click here to expand or collapse this section</summary>
-
-- [*Azure ALAR*][def2]
+## Lab 2: Fix VM noboot issue caused by missing hv_storvsc of LIS driver in initrd/initramfs
   
-           If you are going to use Azure ALAR steps in order to create the troubleshooting VM and fix this issue; no additional steps are required. 
-           Please just confirm the Original broken VM is now working as expected.
+### Instructions
 
-</details>
-
-#### *Method 2 - chroot*
-
-<details close>
-
-<summary>Click here to expand or collapse this section</summary>
-
-- [*chroot*][def], 
-  
-   1. After creating Nested environment following [*chroot*][def] steps please proceed to [step 2](#ii.).
-
-   2. Take a backup of the Old Initrd image and Rebuild the Initrd for the current kernel using the command below (*Remember to include the correct path on the command*):
- 
-          dracut -f -v <initramfsversion> <kernelversion>
-
-   3. Exit chroot and unmount the OS disk copy from the troubleshooting VM, after you've done that, please reassemble the original VM by switching the OS disk.
-
-   4. The VM should be now able to boot after Initrd configuration gets changed.
-
-[def]: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/chroot-environment-linux#using-the-same-lvm-image 
-[def2]: https://github.com/Azure/ALAR
-
-  </details>
-  
-  ## Lab 2: Fix VM noboot issue caused by missing hv_storvsc of LIS driver in Initrd.
-  
-  *On this Lab the *hv_storvsc* driver has been removed from the Initrd configuration.*
- 
-  *Your task is to set a Nested environment using one of the possible Solution Methods provided below in order to add the missing driver into the Initrd config file.*
-
-  *Once you've added the missing driver into the Initrd configuration file, make the necessary configuration changes to ensure the VM boots up properly.*
-  
-  ### Symptom
-
+1.  Deploy one Broken VM using the link below:
+   
 ![initramfs file corrupted](https://github.com/mitchcr/ONEVM/blob/main/Initrd/GutHub%20-%20initramfs%20-%20lab%202%20error.png)
 (https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2Initrd%2fLab02InitrdModule.json)
 
-  ### How to fix it? 
+
+
+
+
+
+
 
 Deploy the *RHEL 7.2 Gen 1 without LVM* Broken VM using the link below: 
 
