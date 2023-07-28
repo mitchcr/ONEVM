@@ -2,7 +2,7 @@
 
 ## Modules:
 
-> [WSL](https://github.com/mitchcr/ONEVM/tree/main/WSL)
+> [WSL\(Moving to Foundation's training\)](https://github.com/mitchcr/ONEVM/tree/main/WSL)
 
 > [UEFI](https://github.com/mitchr/ONEVM/tree/main/UEFI) 
 
