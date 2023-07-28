@@ -9,7 +9,7 @@ sed -i 's/add_drivers+="hv_vmbus hv_netvsc hv_storvsc"/\#add_drivers+="hv_vmbus 
 echo "omit_drivers+=\"hv_vmbus hv_netvsc hv_storvsc\"" >> /etc/dracut.conf
 
 #Recreate the initrd
-dracut -f /boot/initramfs-`uname -r`.img `uname -r`
+dracut -f /boot/initramfs-3.10.0-327.59.1.el7.x86_64.img 3.10.0-327.59.1.el7.x86_64
 
 #Reboot the VM
 reboot
