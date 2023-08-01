@@ -16,6 +16,6 @@ In this scenario your customer may have upgraded a VM, installed new software or
 
 1. Deploy an Ubuntu 20.04 VM using the link below, it will be asking for your public ssh key, be ready to provide it.
 
-    [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/[https://raw.githubusercontent.com/mitchcr/ONEVM/main/VMRecover/VMRecoverLab1.json])
+    [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https://raw.githubusercontent.com/mitchcr/ONEVM/main/VMRecover/VMRecoverLab1.json)
 
 2. Once the VM
