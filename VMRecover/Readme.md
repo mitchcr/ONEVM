@@ -69,7 +69,7 @@ You should see the configuration errors.
 
 17.  Check it is listening for new connections:
 
-        ss -tupln|grep -i ssh
+            ss -tupln|grep -i ssh
 
 18. Ensure you are stil _root_; you can check using the comand _id_
 
