@@ -1,16 +1,21 @@
 # VM Recover Lab
 
-About this Lab:
+## About this Lab
 
+- This course/module was created to VM Recover LAB
+- It will take aproximately 60 minutes.
+- This module introduces you to the tools to VM Recover.
+- This Lab provides handos-on activities.
+- After this course/module you will be able to recover a Linux configuration file using the sed tool.
 
-This Lab was created for VM Recover
+## Lab 1: Corruption of the sshd_config file
+### Scenario
+In this scenario your customer may have upgraded a VM, installed new software or has accidentaly _mangled_ the sshd_config file.  Upon restarting the sshd daemon no new sshd connections can be established with the VM. You need to remove the offending lines. 
 
-For now it only has the Ubuntu 16 deployment.
+### Deployment instructions
 
-### How to fix it? 
+1. Deploy an Ubuntu 20.04 VM using the link below, it will be asking for your public ssh key, be ready to provide it.
 
-Deploy the Ubuntu 16.04 VM using the link below: 
+  [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fVMRecover%2VMRecoverLab1.json)
 
-  [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fVMRecover%2flab03.json)
-
-Once the VM has been deployed, continue with the lab document.
+2. Once the VM
