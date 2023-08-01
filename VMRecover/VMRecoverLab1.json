@@ -83,7 +83,7 @@
       },
       "customData": {
         "type": "string",
-        "defaultValue": "IyEvYmluL2Jhc2gKI0NvcHkgb2YgdGhlIG9yaWdpbmFsIHNzaGRfY29uZmlnIGZpbGUKY3AgLXAgL2V0Yy9zc2gvc3NoZF9jb25maWcgL2V0Yy9zc2gvc3NoZF9jb25maWctJChkYXRlICsiJWQtJW0tJXktJVIiKQoKI0NoYW5nZSBzc2ggcG9ydCBmcm9tIGRlZmF1bHQgdG8gMjIyMgpzZWQgLUVpICdzL14jPyhbWzpzcGFjZTpdXT8pK1BvcnQoW1s6c3BhY2U6XV0/MjIoW1s6c3BhY2U6XV0/KSspKyQvUG9ydCAyMjIyICMgTW9kaWZpZWQgYnkgYXV0b21hdGlvbi4vJyAvZXRjL3NzaC9zc2hkX2NvbmZpZwoKI1Jlc3RhcnRpbmcgdGhlIHNlcnZpY2UKc3lzdGVtY3RsIHJlc3RhcnQgc3NoZAoK",
+        "defaultValue": "IyEvYmluL2Jhc2gKI0NvcHkgb2YgdGhlIG9yaWdpbmFsIHNzaGRfY29uZmlnIGZpbGUKY3AgLXAgL2V0Yy9zc2gvc3NoZF9jb25maWcgL2V0Yy9zc2gvc3NoZF9jb25maWctJChkYXRlICsiJWQtJW0tJXktJVIiKQoKI0NoYW5nZSBzc2ggcG9ydCBmcm9tIGRlZmF1bHQgdG8gMjIyMgpzZWQgLUVpICdzL14jPyhbWzpzcGFjZTpdXT8pK1BvcnQoW1s6c3BhY2U6XV0/MjIoW1s6c3BhY2U6XV0/KSspKyQvUG9ydCAyMjIyICMgTW9kaWZpZWQgYnkgYXV0b21hdGlvbi4vJyAvZXRjL3NzaC9zc2hkX2NvbmZpZwoKI0FkZCBhbiBleHRyYSBsaW5lIGluIHRoZSBzc2hkIGNvbmZpZ3VyYXRpb24gZmlsZQplY2hvICJ5b3UgZm91bmQgbWUiID4+IC9ldGMvc3NoL3NzaGRfY29uZmlnCgojUmVzdGFydGluZyB0aGUgc2VydmljZQpzeXN0ZW1jdGwgcmVzdGFydCBzc2hkCgo=",
         "metadata": {
           "description": "base64 content for cloud-init custom data"
         }
