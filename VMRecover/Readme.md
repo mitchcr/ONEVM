@@ -92,6 +92,54 @@ Let's summarize what you ahve learned after this lab:
 - Manage the SSH daemon process using _systemctl_.
 - Verify the daemon process using _ps, ss_.
 
+## Lab 2: Run command to reset sshd_config default port
+
+### Scenario
+In this scenario your customer may have changed the SSH default port and restarted the sshd service.  Now other users are unable to login.   You have to modify the sshd configuration file to set the port to default (22) through "run command" from the portal. 
+
+### Deployment instructions
+
+For this lab we'll continue using the VM created previously as connections using SSH are currently not available using port 22. 
+
+1.  To start troubleshooting the issue you can verify the service status. 
+
+        systemctl status sshd
+
+2.  Checking on the output of that command you can see the port is different that the default one (22), if you're not able to see it in the logs you can also check with command:
+
+        journalctl -u sshd
+
+3.   Another way to check on current listening port is filtering the configuration file and check directly in the port.   If the Port line starts with # symbol that means the VM is using default port to listen, which is 22.
+
+    grep -i port /etc/ssh/sshd_config
+
+4.  To fix the issue, go to the Azure Portal, select the VM.  Then, go to "Run command", select "RunShellScript" and add the below two commands to the "Linux Shell Script" section:
+
+        sed -i 's/Port 2222/Port 22/g' /etc/ssh/sshd_config
+        sshd -t
+        systemctl restart sshd
+    
+6.  Select "Run" and wait until the execution is done, you'll get an output.  Check on it, the standard output(stdout) and standard error (stderr) should be empty.
+   
+7. Try to loging to the VM using an SSH client and port 22 and verify now you can access to it.
+   
+8.  Check the status of the sshd service with the following commands:
+
+        systemctl status sshd
+        journalctl -u sshd
+        ss -tulpn |grep sshd
+
+### Your goal
+Let's summarize what you have learned after this lab: 
+- Run Linux command using the "run command" feature on the portal.
+- Verify the integrity of the sshd_config file using _sshd -t_ command.
+- Change the port to default in the sshd_config file using _sed_ command.
+- Manage the SSH daemon process using _systemctl_ command.
+- Verify the daemon process using _ss_ command.
+
+
+
+
 
 
 
