@@ -273,3 +273,9 @@ In this scenario your customer may have installed the new kernel or patched the 
        az vm repair restore --verbose --resource-group "<resource_group_of_failed_vm>" --name "<Failed_VM_Name>"
 
 4. Verify the VM is in a boot scenario.
+
+### Your goal
+Let's summarize what you have learned after this lab: 
+- Run CLI commands with ALAR scripts.
+- Recover corrupt/missing initrd/initramfs image file with ALAR.
+- Verify the succesful login to the VM after the recovery.
