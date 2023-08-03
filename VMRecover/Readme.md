@@ -83,7 +83,7 @@ You should see the configuration errors.
 22. Use a SSH client tool, such as _putty_ or _WSL_ to connect to this VM.
 
     
-24. Check back in the Serial Console, the log file you are tailing in the Serial Console will show the connect and eventual disconnect messages, in this particular case we will not have any lines.  Press _Control+C_ to interrupt.  The service is currently up and running, but the SSH connections are still failing,  this scenarios occurs in real life where is not just one thing that could be happening.  In Lab2, we'll continue the troubleshooting to finish fixing current scenario. 
+24. Check back in the Serial Console, the log file you are tailing in the Serial Console will show the connect and eventual disconnect messages, in this particular case we will not have any new lines (this is expected).  Press _Control+C_ to interrupt.  The service is currently up and running, but the SSH connections are still failing,  these scenarios occur in real life where is not just one thing that could be happening.  In Lab2, we'll continue the troubleshooting to finish fixing current scenario. 
 
 ### Your goal 
 Let's summarize what you ahve learned after this lab: 
