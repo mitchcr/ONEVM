@@ -218,7 +218,7 @@ Replace the information betwen <> accordily.
 
 17.  Using Serial Console connect to the Lab VM and execute the following commands:
 
-         echo "UUID=4ed50c8a-125c-4a9d-8ef0-846b40492f53  /datadrive   ext4   defaults,nofail   1   2"
+         echo "UUID=4ed50c8a-125c-4a9d-8ef0-846b40492f53  /datadrive   ext4   defaults,nofail   1   2" >> /etc/fstab
          reboot
 
 18.  Check you have a non-boot scenario in place.
