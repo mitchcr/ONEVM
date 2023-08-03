@@ -249,3 +249,27 @@ You should know how to resolve incorrect entries in the /etc/fstab by:
 
 ### Reference
 [Repair a Linux VM by using the Azure Virtual Machine repair commands - Virtual Machines | Microsoft Docs](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/repair-linux-vm-using-azure-virtual-machine-repair-commands)
+
+
+### Lab 4: Recover failed VM due to corrupt initrd with 'ALAR' scripts
+
+- The time to complete this lab is 30 minutes.
+- After this lab you will be able to recover a non boot-scenario with the help of the ALAR
+
+### Scenario
+In this scenario your customer may have installed the new kernel or patched the VM and rebooted it.   Now, the VM stuck in boot due to corrupt or missing initrd.   You have to use ALAR scripts to regenerate initrd/initramfs image file and reboot the VM to make it available. 
+
+### Deployment instructions
+
+1. Deploy an Ubuntu 20.04 VM using the link below, it will be asking for your public ssh key, be ready to provide it.
+
+    [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fVMRecover%2fVMRecoverLab4.json)
+
+2. Once the VM is created, check the non-boot scenario, the VM will stuck on boot due to initrd issue and a kernel panic will be showed in the Serial Console. Analyze the error.
+3. Using WSL or Cloud Shell fix the issue executing the following commands, remember to replace the information like resource group with the correct one:
+
+       az vm repair create --resource-group "<resource_group_of_failed_vm>" --name "<Failed_VM_Name>" --verbose --repair-username "<temporary_usename>" --repair-password "<password>"
+       az vm repair run --verbose --resource-group "<resource_group_of_failed_vm>" --name "<Failed_VM_Name>" --run-id linux-alar-fki --parameters initrd --run-on-repair
+       az vm repair restore --verbose --resource-group "<resource_group_of_failed_vm>" --name "<Failed_VM_Name>"
+
+4. Verify the VM is in a boot scenario.
