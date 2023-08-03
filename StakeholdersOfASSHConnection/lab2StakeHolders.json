@@ -81,7 +81,7 @@
     },
     "subnetName": {
       "type": "string",
-      "defaultValue": "newtestsubnet",
+      "defaultValue": "sshlab2bsubnet",
       "metadata": {
         "description": "Name of the subnet in the virtual network"
       }
