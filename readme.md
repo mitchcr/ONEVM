@@ -4,7 +4,7 @@
 
 > [WSL\(Moving to Foundation's training\)](https://github.com/mitchcr/ONEVM/tree/main/WSL)
 
-> [UEFI](https://github.com/mitchr/ONEVM/tree/main/UEFI) 
+> [UEFI](https://github.com/mitchcr/ONEVM/tree/main/UEFI) 
 
 > [Greater insight in initrd](https://github.com/mitchcr/ONEVM/tree/main/Initrd)
 
