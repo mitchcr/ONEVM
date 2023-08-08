@@ -46,5 +46,63 @@ The missing routes are:
 - Keep an eye on the default route. If this is missing what does happen?  Remove the route again if required.
 
   
+## Lab 3
+
+## Instructions
+
+ 1. Deploy an Red Hat VM using the link below, it will be asking for a password for the user "azureuser": 
+
+    [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fStakeholdersOfASSHConnection%2flab3StakeHolders.json)
+
+iptables services are not installed by default on recent versions of Red Hat, so during the deployment you created a Red Hat VM and we stopped and maske firewalld and installed and started iptables services for you. 
+
+## Task
+
+1.  Connect to the VM's Serial Console and switch to root account.
+2.  Create a drop rule for SSH to block incoming trafic:
+
+        iptables -A INPUT -p tcp --dport 22 -j DROP
+
+    Are you able to logon via SSH to the VM? if yes, restart the sshd service and try again.
+
+3. Create a rule to drop incoming traffic for all but your address, to do that, you need to know your current IP address, use the following site to get the information [What is My IP?](https://www.whatismyip.com/). Change <YOUR_IP_ADDRESS> with this information in the following command: 
+
+        iptables -A INPUT -p tcp --dport 22 -s <YOUR_IP_ADDRESS> -j ACCEPT
+
+    After adding this new rule are you now able to log on via SSH?
+
+4.  Although you have added a rule to accept traffic from your IP, you are bloked.  Why?
+   
+       The reason is the order of the rules.  Use the following command to see the rules applied and ruleset-number:
+
+        iptables -L -n -v --line-numbers
+
+5.  Delete a rule.   To get access to the VM again the first rule must be deleted.  Use the following command to get the ruleset-number of the DROP rule from step 2:
+
+        iptables -L --line-numbers
+
+    Now, delete the rule:
+
+        iptables -D INPUT <RULE_NUMBER>
+
+    Access to the VM is possible after this step.
+
+6.  List all the rules.  To see what rules are active on the VM you can use the following command:
+
+        iptables -L
+
+    By default, the filter table is displayed.  To see a different table, use the option _-t_, and the table name.   The tables are:
+    - filter
+    - nat
+    - mangle
+    - security
+
+7.  To flush (disable) all rules use this command:
+
+        iptables -F
+
+    By default, the filter table is flushed only.   We have rules in the security table.  Please remove them.
+
+
 
 
