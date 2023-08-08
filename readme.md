@@ -10,4 +10,6 @@
 
 > [VM Recover](https://github.com/mitchcr/ONEVM/tree/main/VMRecover)
 
+> [Collect OS details](https://github.com/mitchcr/ONEVM/tree/main/CollectOSDetails) 
+
 > [Stakeholders of a SSH Connection](https://github.com/mitchcr/ONEVM/tree/main/StakeholdersOfASSHConnection)
