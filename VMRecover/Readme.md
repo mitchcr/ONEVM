@@ -279,3 +279,7 @@ Let's summarize what you have learned after this lab:
 - Run CLI commands with ALAR scripts.
 - Recover corrupt/missing initrd/initramfs image file with ALAR.
 - Verify the succesful login to the VM after the recovery.
+
+
+
+#### Return to the [Main Menu](https://github.com/mitchcr/ONEVM/blob/main/readme.md)
