@@ -25,3 +25,5 @@ On this LAB the idea is to simulate that the UEFI partition was removed by mista
 
 **Expectation:** Your VM should be back now. 
 
+
+#### Return to the [Main Menu](https://github.com/mitchcr/ONEVM/blob/main/readme.md)
