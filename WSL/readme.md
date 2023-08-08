@@ -112,5 +112,4 @@ At the end of this lab, you should know how to:
 [JMESPath](https://jmespath.org/)
 
 
-#### Return to the Main Menu
-[Main Menu](https://github.com/mitchcr/ONEVM/blob/main/readme.md)
+#### Return to the [Main Menu](https://github.com/mitchcr/ONEVM/blob/main/readme.md)
