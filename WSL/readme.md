@@ -110,3 +110,6 @@ At the end of this lab, you should know how to:
 [Use the Azure CLI to create a Linux VM | Microsoft Docs](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli)
 
 [JMESPath](https://jmespath.org/)
+
+
+[Main Menu](https://github.com/mitchcr/ONEVM/blob/main/readme.md)
