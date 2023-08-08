@@ -107,3 +107,33 @@ _"In a scenario, where the VM is part of a public Load Balancer backend pool. Th
 - Perform an update on the VM using below command:
 
       yum update -y 
+
+## Lab 4
+
+### Instructions
+
+1. Deploy a SuSE VM using the link below, it will be asking for your public ssh key, be ready to provide it.
+
+    [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fRepositoryIssues%2fRepositoryIssuesLab4.json)
+
+
+2. Check if the VM is registered running the following command as root account:
+
+        SUSEConnect -s 
+
+      The command should tell you the VM is _Not Registered_
+
+### Task
+
+Make sure SUSEConnect -s should show as Registered and update the VM to the latest patches in current version.
+
+### Solution
+
+Executing command: 
+
+        tail -n 100 /var/log/cloudregister
+
+We could see that the baseproduct link is wronly  mapped.   To fix follow these commands: 
+
+
+  
