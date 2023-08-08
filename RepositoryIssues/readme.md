@@ -94,6 +94,16 @@ Make sure there are no pending updates in the VM.
 
 When you have an Azure VM hosted behind a Standard Internal Load Balancer, the Azure VM will not be able to communicate to the internet, unless the load balancer is external facing, or if the Azure VM is associated to a Public IP of standard SKU. 
 
-**You can refer to Scenario 
+**You can refer to Scenario 2 from here**  [Load balancer outbound connections](https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#2-associate-a-nat-gateway-to-the-subnet)  You can find more information on how to [create a NAT gateway and associate it with an existing subnet](https://learn.microsoft.com/en-us/azure/nat-gateway/manage-nat-gateway?tabs=manage-nat-cli#create-a-nat-gateway-and-associate-it-with-an-existing-subnet)
 
+#### Next action plan 
 
+These public IP addresses must be attached directly to the VM on the Network Interface. However you can filter the traffic for the VM for security reasons using Network Security Groups. 
+
+Please refer to the following article for why a load balancing rule is required for Internet access when using a Standard external load balancer:  [Load Balancer outbound connections](https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#lb) 
+
+_"In a scenario, where the VM is part of a public Load Balancer backend pool. The VM does not have a public IP address assigned to it. The Load Balancer resource must be configured with a load balancer rule to create a link between the public IP frontend with the backend pool. It is not necessary for the rule to have a working listener in the backend pool for the health probe to succeed. When the load-balanced VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to the public IP address of the public Load Balancer frontend. Azure uses SNAT to perform this function.”_
+
+- Perform an update on the VM using below command:
+
+      yum update -y 
