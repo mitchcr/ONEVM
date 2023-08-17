@@ -10,6 +10,8 @@
 
 > [VM Recover](https://github.com/mitchcr/ONEVM/tree/main/VMRecover/Readme.md)
 
-> [Collect OS details](https://github.com/mitchcr/ONEVM/tree/main/CollectOSDetails/readme.md) 
+> [Collect OS details](https://github.com/mitchcr/ONEVM/tree/main/CollectOSDetails/readme.md)
+
+> [Repository issues](https://github.com/mitchcr/ONEVM/tree/main/RepositoryIssues/readme.md)  
 
 > [Stakeholders of a SSH Connection](https://github.com/mitchcr/ONEVM/tree/main/StakeholdersOfASSHConnection/readme.md)
