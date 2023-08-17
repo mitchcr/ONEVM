@@ -11,7 +11,7 @@
     "parameters": {
       "vmName": {
         "type": "string",
-        "defaultValue": "repository-lab4",
+        "defaultValue": "repository-lab04",
         "metadata": {
           "description": "The name of you Virtual Machine."
         }
@@ -52,14 +52,14 @@
       },
       "virtualNetworkName": {
         "type": "string",
-        "defaultValue": "repositorylab4",
+        "defaultValue": "repository-lab4vNet",
         "metadata": {
           "description": "Name of the VNET"
         }
       },
       "subnetName": {
         "type": "string",
-        "defaultValue": "repositorylab4",
+        "defaultValue": "repository-lab4subnet",
         "metadata": {
           "description": "Name of the subnet in the virtual network"
         }
@@ -73,7 +73,7 @@
       },
       "customData": {
         "type": "string",
-        "defaultValue": "IyEvYmluL2Jhc2gKCnVubGluayAvZXRjL3Byb2R1Y3RzLmQvYmFzZXByb2R1Y3QKbG4gLXMgL2V0Yy9wcm9kdWN0cy5kL3NsZS1tb2R1bGUtdG9vbGNoYWluLnByb2QgL2V0Yy9wcm9kdWN0cy5kL2Jhc2Vwcm9kdWN0IApyZWdpc3RlcmNsb3VkZ3Vlc3QgLS1mb3JjZS1uZXcK",
+        "defaultValue": "IyEvYmluL2Jhc2gKCmNkIC9ldGMvcHJvZHVjdHMuZAp1bmxpbmsgYmFzZXByb2R1Y3QKbG4gLXMgc2xlLW1vZHVsZS10b29sY2hhaW4ucHJvZCBiYXNlcHJvZHVjdCAKcmVnaXN0ZXJjbG91ZGd1ZXN0IC0tZm9yY2UtbmV3CnNsZWVwIDEwCgo=",
         "metadata": {
           "description": "base64 content for cloud-init custom data"
         }
@@ -373,9 +373,9 @@
             },
             "imageReference": {
               "publisher": "SUSE",
-              "offer": "opensuse-leap-15-4",
+              "offer": "sles-15-sp4",
               "sku": "gen1",
-              "version": "2023.08.07"
+              "version": "2023.05.06"
             }
           },
           "networkProfile": {
@@ -430,9 +430,9 @@
           "typeHandlerVersion": "2.1",
           "autoUpgradeMinorVersion": true,
           "protectedSettings": {
-          "commandToExecute": "[concat('sh Lab3Initrd_Script.sh')]",
+          "commandToExecute": "[concat('sh RepositoryIssues-Lab4-breakscript.sh')]",
           "fileUris": [
-          "https://raw.githubusercontent.com/mitchcr/ONEVM/main/Initrd/Lab3Initrd_Script.sh"
+          "https://raw.githubusercontent.com/mitchcr/ONEVM/main/RepositoryIssues/RepositoryIssues-Lab4-breakscript.sh"
           ]
           }
           }
@@ -446,6 +446,11 @@
       "hostname": {
         "type": "string",
         "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn]"
+      },
+      "sshCommand": {
+        "type": "string",
+        "value": "[format('ssh {0}@{1} -p 2222', parameters('adminUsername'), reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn)]"
       }
     }
   }
+  
