@@ -129,11 +129,36 @@ Make sure SUSEConnect -s should show as Registered and update the VM to the late
 
 ### Solution
 
-Executing command: 
+1.  Connect to the repository-lab04 VM and switch to root account.
+2.  Check the output of the following command: 
 
         tail -n 100 /var/log/cloudregister
 
-We could see that the baseproduct link is wronly  mapped.   To fix follow these commands: 
+We could see that the baseproduct link is wronly  mapped.   
 
+To fix follow these commands: 
 
+3. Change to the /etc/products.d directory:
+
+        cd /etc/products.d
+
+4. Remove the current link:
+
+        unlink baseproduct
+
+5. Create the correct link:
+
+        ln -s SLES.prod baseproduct
+   
+6. Verify if the link is rightly mapped or not:
+
+        ls -lh
+
+7. Re-register the VM:
+
+        registercloudguest --force-new
+
+8.  Verify if the VM is registered or not:
+
+        SUSEConnect -s
   
