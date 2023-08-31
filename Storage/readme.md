@@ -25,8 +25,7 @@ In this lab, we are going to create data disks and build LVM volumes on top of t
 
 1. Deploy one RHEL VM using the link below:
 
-<a href="https://raw.githubusercontent.com/mitchcr/ONEVM/main/Storage/StorageLab01.json" target="_blank">
-<img src="https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png"/>
-</a>
+[![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fStorage%2fStorageLab01.json)
+
 
 2.  
