@@ -376,7 +376,17 @@
               "offer": "RHEL",
               "sku": "9_2",
               "version": "9.2.2023062710"
-            }
+            },
+            "dataDisks": [
+                        {
+                          "lun": 0,
+                          "name": "datadisk0",
+                          "createOption": "Empty",
+                          "caching": "None",
+                          "diskSizeGB": "4",
+                          //"deleteOption": ""
+                          "toBeDetached": false}
+                    ]
           },
           "networkProfile": {
             "networkInterfaces": [
@@ -432,4 +442,3 @@
       }
     }
   }
-  
