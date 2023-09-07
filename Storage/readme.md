@@ -28,4 +28,18 @@ In this lab, we are going to create data disks and build LVM volumes on top of t
 [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fStorage%2fStorageLab01.json)
 
 
-2.  
+2.  Connect to the VM and switch to root account using the following command:
+
+        sudo -i
+3.  Identify the data disk that is not in use on the OS with command:
+
+         lsblk
+
+    The output of that command will be similiar to the one on this example:
+
+    
+![lsblk_output](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/lsblkoutput.jpg)
+
+In the output we marked 3 columns, Name, Size and Type.   To identify the disks attached to the VM you can check under the blue rectangle, that's the TYPE column, search for the word "disk" those will be the disks attached to the VM.   So following the previous example we have 3 disks as we can count 3 times the word "disk" under that column.   First column, the one marked in yellow, will provide us the names, following the example those will be sda, sdb and sdc.   In this particular case we are searching for one data disk that is empty, not in use, so you can check on the last column (not marked) that is called MOUNTPOINTS and search for the disk that does not have anything there.  Another way is checking on the disk size.  The attached disk has 4 GB, you can search that in the green rectangle.  The disk we will modify following this example will be the disk named sdb.   We will refer to it as /dev/sdb as all the devices in Linux are under /dev directory.    Remember that in Azure we cannot guarantee the device names, so it's possible that in your lab the disk you'll be using can have a different name than this example, proceed to identify it. 
+
+4. 
