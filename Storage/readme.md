@@ -40,6 +40,38 @@ In this lab, we are going to create data disks and build LVM volumes on top of t
     
 ![lsblk_output](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/lsblkoutput.jpg)
 
-In the output we marked 3 columns, Name, Size and Type.   To identify the disks attached to the VM you can check under the blue rectangle, that's the TYPE column, search for the word "disk" those will be the disks attached to the VM.   So following the previous example we have 3 disks as we can count 3 times the word "disk" under that column.   First column, the one marked in yellow, will provide us the names, following the example those will be sda, sdb and sdc.   In this particular case we are searching for one data disk that is empty, not in use, so you can check on the last column (not marked) that is called MOUNTPOINTS and search for the disk that does not have anything there.  Another way is checking on the disk size.  The attached disk has 4 GB, you can search that in the green rectangle.  The disk we will modify following this example will be the disk named sdb.   We will refer to it as /dev/sdb as all the devices in Linux are under /dev directory.    Remember that in Azure we cannot guarantee the device names, so it's possible that in your lab the disk you'll be using can have a different name than this example, proceed to identify it. 
+In the output we marked 3 columns, Name, Size and Type.   To identify the disks attached to the VM you can check under the blue rectangle, that's the TYPE column, search for the word "disk" those will be the disks attached to the VM.   So following the previous example we have 3 disks as we can count 3 times the word "disk" under that column.   First column, the one marked in yellow, will provide us the names, following the example those disks are: sda, sdb and sdc.   In this particular case we are searching for one data disk that is empty, not in use, so you can check on the last column (not marked) that is called MOUNTPOINTS and search for the disk that does not have anything there.  Another way is checking on the disk size.  The attached disk has 4 GB, you can search that in the green rectangle.  The disk we will modify following this example will be the disk named sdb.   We will refer to it as /dev/sdb as all the devices in Linux are under /dev directory.    Remember that in Azure we cannot guarantee the device names, so it's possible that in your lab the disk you'll be using can have a different name than the one in this example, proceed to identify it and remember to use the correct names in next commands. 
 
-4. 
+4. Create a physical volume with command:
+
+        pvcreate <disk>
+
+   Example:
+
+ ![pvcreate](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/pvcreate.jpg)
+
+5. Create a volume group with command:
+
+        vgcreate <volume_group_name> <physical_volume>
+
+   Example:
+
+ ![vgcreate](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/vgcreate.jpg)
+
+6.  Create a logical volume assigning all the free space with command:
+
+        lvcreate -l 100%FREE -n <logical_volume_name> <volume_group_name>
+
+    Example:
+    
+![lvcreate](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/lvcreate.jpg)
+
+8.  Verify the changes with the following commands:
+
+        pvs  #to check on the physical volumes
+        vgs  #to check on the volume groups
+        lvs  #to check on the logical volumes
+
+   Example: 
+
+![verify](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/verify.jpg)
