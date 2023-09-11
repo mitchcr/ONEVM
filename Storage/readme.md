@@ -215,3 +215,61 @@ Example:
  ![format2](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/format2.jpg)
 
  
+8.  Create one files of 1GB size and verify the md5sum and note it down to check later after resize of disk.
+
+        dd if=/dev/zero of=<file_path_name> bs=1024k count=1000
+        md5sum <file_path_name>
+
+Example: 
+
+ ![file2](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/file2.jpg)
+
+
+9. Let us think our new filesystem is full and we need to extend the size of the disk.  Stop the VM and resize the second disk added from 4GB to 8 GB.   Start the VM and verify from OS level. 
+
+        lsblk
+
+ ![resize2](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/resize2.jpg)
+ 
+ ![size2](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/size2.jpg)
+
+ **Note:** We can change of size only in the disk and not in partition. We can delete and recreate the partition again.  Data on the disk will not be lost, only the partition mapping will be deleted and created again.
+
+10. Delete and create a new partition from the resized disk:
+
+        fdisk <disk_path>
+        d #To delete the current partition.
+        n #To create a new partition.
+        p #To select primary, you can just hit on enter as p is choosen by default.
+        1 #Select the partition number or just hit enter to select the default one.
+        2048  #Select the starting point for the partition, default will select the next available cylinder on the drive, number should be the same than the one partition had as starting point.
+        16777215 #Select the last point for the partition or just hit enter, again we're going to use entire disk.
+        N #in question "Do you want to remove the signature? [Y]es/[N]o" answer No with a upper case N.
+        p #to check on partition table, check on the partition size should be 8GB.
+        w #to write the changes and exit.
+        
+Example: 
+
+ ![resizepartition](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/resizepartition.jpg)
+
+11.  Resize the physical volume and verify.   Then, extend the logical volume in 3GB and resize the filesystem. Check on md5sum of the file for consistency, value should be same:
+
+         pvresize <physical_volume>
+         pvs
+         vgs
+         lvextend -L +3GB <logical_volume>
+         lvs
+         xfs_growfs <filesystem>
+         df -h <filesystem>
+         md5sum <file_path>
+
+Example: 
+
+ ![secgrowth](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/secgrowth.jpg)
+
+
+### Scenario 3
+#### Extend the existing disk and resize the LVM by creating new partitions
+
+
+
