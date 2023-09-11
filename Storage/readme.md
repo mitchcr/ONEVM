@@ -311,4 +311,18 @@ Example:
  ![toggle](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/toggle.jpg)
 
 
+5.  Create a physical volume on the second partition.  Extend the volume group and resize the logical volume.  Grow the filesystem and check with following commands:
+
+        pvcreate <second_partition_path>
+        vgextend <volume_group> <second_partition_path>
+        pvs #To check on the physical volumes
+        vgs #To check on volume groups
+        lvextend -L +8G <logical_volume>
+        lvs #To check on logical volume
+        xfs_growfs <filesystem>
+        df -Th |grep <filesystem>
+   
+Example: 
+
+ ![growth2](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/growth2.jpg)
 
