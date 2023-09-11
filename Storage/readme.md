@@ -421,15 +421,82 @@ Example:
 
 5. Install the package:
 
-       dnf install blobfuse2
+       dnf install blobfuse2 -y
 
 Example: 
 
   ![install](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/install.jpg)
 
+6. Create an empty directory to be used as mount point of the blob storage container:
 
+        mkdir <directory_path>
+
+Example: 
+
+![mountpoint](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/mountpoint.jpg)
+
+
+8. Go to Azure Portal, search for your Resource group and search for the storage account created.  Click on it and then click in left panel in "Containers".  Create a new Container with the name you prefer.
+
+Example: 
+
+![containers](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/containers.jpg)
+
+
+9. In Azure VM, create a YAML configuration file to be used to mount the blobfuse, in the example we created under /etc directory, the file should contain the following information:
+
+        allow-other: true
+
+        logging:
+          type: syslog
+          level: log_debug
+
+        components:
+          - libfuse
+          - file_cache
+          - attr_cache
+          - azstorage
+
+        libfuse:
+          attribute-expiration-sec: 120
+          entry-expiration-sec: 120
+          negative-entry-expiration-sec: 240
+
+        file_cache:
+          path: <temporary_directory_that_will_be_used_by_blobfuse>
+          timeout-sec: 120
+          max-size-mb: 4096
+
+        attr_cache:
+          timeout-sec: 7200
+
+        azstorage:
+          type: block
+          account-name: <your_storage_account_name>
+          account-key: '<your_storage_account_key' #Check on the note below
+          endpoint: https://<your_storage_account_name>.blob.core.windows.net
+          mode: key
+          container: <container_name>
+
+**Note: **  You can get your account-key from Azure Portal, in the Storage Account, select "Access keys" from left panel and then click in "Show" to copy from there.
+
+![key](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/key.jpg)
+
+
+Example: 
+
+![file](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/file.jpg)
+
+
+11. 
+
+
+
+
+12. 
 
 ### References
 
 [What is BlobFuse?](https://learn.microsoft.com/en-us/azure/storage/blobs/blobfuse2-what-is)
+
 [How to mount an Azure Blob Storage container on Linux with BlobFuse2](https://learn.microsoft.com/en-us/azure/storage/blobs/blobfuse2-how-to-deploy?tabs=RHEL)
