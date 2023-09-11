@@ -488,15 +488,18 @@ Example:
 ![file](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/file.jpg)
 
 
-11. 
+11.  Mount the blobfuse in the directory created with command:
 
+         blobfuse2 mount <directory_name> --config-file=<configuration_file>
 
+Example: 
 
-
-12. 
+![mount](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/mount.jpg)
 
 ### References
 
 [What is BlobFuse?](https://learn.microsoft.com/en-us/azure/storage/blobs/blobfuse2-what-is)
 
 [How to mount an Azure Blob Storage container on Linux with BlobFuse2](https://learn.microsoft.com/en-us/azure/storage/blobs/blobfuse2-how-to-deploy?tabs=RHEL)
+
+[BaseConfig.yaml](https://github.com/Azure/azure-storage-fuse/blob/main/setup/baseConfig.yaml)
