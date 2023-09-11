@@ -383,4 +383,53 @@ LVM offers a great flexibility on doing hot resizes without the need to unmount 
 
 [Linux LVM Cheat Sheet / Quick Reference](https://unixutils.com/lvm-cheat-sheet-quick-reference/)
 
-## Lab 3
+## Lab 3: BlobFuse2
+
+### About this Lab
+
+- This course/module was created to Storage Lab3 Blobfuse
+- It will take approximately **30** minutes
+- This module introduces you to the use of blobfuse.
+- This Lab provides hands-on activities.
+- After this course/module you will be able to:
+      - Install and configure blobfuse to mount the container from blob storage.
+
+### Deployment instructions
+
+1. Proceed to create a Red Hat 8.8 VM using the following button, if you want to deploy in a different tab, please use right-click:
+
+    [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fStorage%2fStorageLab3.json)
+
+2. Once the VM is created, connect to it using SSH protocol and switch to root account and check on Linux version running following commands:
+
+        sudo -i
+        cat /etc/*-release
+
+Example: 
+
+ ![version](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/version.jpg)
+
+   
+4.  Download BlobFuse2 using Microsoft software repositories for Linux:
+
+        rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
+
+Example: 
+
+  ![download](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/download.jpg)
+
+
+5. Install the package:
+
+       dnf install blobfuse2
+
+Example: 
+
+  ![install](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/install.jpg)
+
+
+
+### References
+
+[What is BlobFuse?](https://learn.microsoft.com/en-us/azure/storage/blobs/blobfuse2-what-is)
+[How to mount an Azure Blob Storage container on Linux with BlobFuse2](https://learn.microsoft.com/en-us/azure/storage/blobs/blobfuse2-how-to-deploy?tabs=RHEL)
