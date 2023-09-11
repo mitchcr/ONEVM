@@ -375,5 +375,12 @@ Example:
 
 LVM offers a great flexibility on doing hot resizes without the need to unmount anything. It is recommended you test more with LVM such as deleting volumes, adding a new disk, extending an existent volume group, or creating a new one, growing and shrinking, creating snapshots, etc.
 
+### References
+
+[Increasing the Size of an XFS File System](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/xfsgrow)
+
+[How to extend a logical volume and its filesystem online in Red Hat Enterprise Linux?](https://access.redhat.com/solutions/24770)
+
+[Linux LVM Cheat Sheet / Quick Reference](https://unixutils.com/lvm-cheat-sheet-quick-reference/)
 
 ## Lab 3
