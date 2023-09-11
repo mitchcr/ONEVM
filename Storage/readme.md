@@ -326,3 +326,54 @@ Example:
 
  ![growth2](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/growth2.jpg)
 
+
+### Scenario 4
+#### Extend the logical volume by adding new disk to the volume group
+
+1. Create and attache an empty disk of 4GB to the VM. Identify it from operative system perspective with command:
+
+        lsblk
+
+Example, in this particular case, the added disk is called /dev/sde: 
+
+  ![thirddisk](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/thirddisk.jpg)
+
+
+2.  Create a new partition using entire disk as explained in Scenario 2, step 3.
+
+Example: 
+
+ ![part4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/part4.jpg)
+
+4.  Create a new physical volume,extend volume group and check:
+
+        pvcreate <partition_path>
+        vgextend <volume_group_name> <partition_path>
+        pvs
+        vgs
+
+Example: 
+
+ ![extend](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/extend.jpg)
+
+5. Extend the logical volume, resize the filesystem and check:
+
+        lvextend -L +4G <logical_volume>
+        xfs_growfs <filesystem>
+        df -Th |grep <filesystem>
+Example: 
+
+ ![extend4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/extend4.jpg)
+
+ **Note: **  Remember to delete all the resources once you have completed the Laboratories. 
+
+ ### Your Goal 
+
+ At the end of this lab, you should know how to: 
+
+ - Resize an existen physical volume, volume group and logical volume.
+
+LVM offers a great flexibility on doing hot resizes without the need to unmount anything. It is recommended you test more with LVM such as deleting volumes, adding a new disk, extending an existent volume group, or creating a new one, growing and shrinking, creating snapshots, etc.
+
+
+## Lab 3
