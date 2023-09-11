@@ -75,3 +75,40 @@ In the output we marked 3 columns, Name, Size and Type.   To identify the disks 
    Example: 
 
 ![verify](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/verify.jpg)
+
+9.  Format the logical volume with xfs filesystem type, create an empty directory to mount the filesystem there, add the FSTAB entry, mount the volume and verify:
+
+        mkfs.xfs <logical_volume_path>   #To format the logical volume
+        mkdir <path_to_new_directory>    #Create an empty directory
+        echo "<logical_volume_path>   <path_to_new_diretory>   xfs defaults,nofail 0 0" >> /etc/fstab  #To add the entry in fstab file
+        mount <path_to_new_directory>  #To mount the filesystem
+        df -Th |grep <name_of_new_diretory>  #To verify
+
+    Example: 
+
+![format](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/format.jpg)
+
+11.  Create one file of size 1GB and verify the md5sum and note it down to check later after resize of disk, change the names if needed:
+
+         dd if=/dev/zero of=/testdisk/myfile.dat bs=1024k count=1000
+         md5sum /testdisk/myfile.dat
+
+     Example:
+
+![filecreation](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/filecreation.jpg)
+
+12. Go to the Azure Portal, stop the VM named storagelab01 and resize the disk **datadisk0** from 4GB to 8GB.  Start the VM, connect to it, switch to root account and verify from OS level:
+
+![diskresize1](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/diskresize1.jpg)
+
+![diskresize2](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/diskresize2.jpg)
+
+**Note** :In the previous example we can see the disk changed the name, now it's called /dev/sdc and the disk size got changed but still physical volume and filesyztem size will not be changed you can verify using the below commands: 
+
+        pvdisplay /dev/sdc
+        df -Th |grep testdisk
+
+![verify2](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/verify2.jpg)
+        
+
+
