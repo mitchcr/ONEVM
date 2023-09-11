@@ -144,7 +144,74 @@ Example:
 
 
 
-### Scenario 1
+### Scenario 2
 #### Extend the existing disk and resize the LVM (In this case LVM is created on top of partitions of disk)
 
-1. 
+1. Create and attach a new empty disk of 4GB to the storagelab01 VM.
+2. Identify the disk from OS perspective:
+
+        lsblk
+
+    Example:
+
+![newdisk](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/newdisk.jpg)
+
+3.  Create a partition using new disk following the below commands:
+
+        fdisk <disk_path>  #in previous example that path will be /dev/sdd
+        n #this will be proceeding to create a new partition
+        p  #You can also just hit on "enter" instead of writing letter "p" this value will takes up the default value, which is primary partition.
+        1  #In this step you can choose a partition number, it doesn't have to be number 1, but by default it chooses number 1, so you can hit also on enter or choose the number of your partition.
+        2048  #This step is to determine the starting point for the partition, default will select the next available cylinder on the drive, hit on enter o type the first available number.
+        8388607  #Here you can select the partition size, hit on enter to take the last value (using entire disk) or select the size you want for the partition for the lab we're using all disk.
+        p  #this will print the partition table for this disk, created partition should appear here.
+        w  #This letter will allow you to seve and exit fdisk command, changes will be permanent after this command is executed. 
+
+Example: 
+
+![newpartition](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/newpartition.jpg)
+
+4. Run the **partprobe** comand to inform the OS of partition table changes:
+
+       partprobe
+
+5.  Change partition ID/Type for LVM:
+
+        fdisk <disk_path>  #In previous example that path will be /dev/sdd
+        t #toggle the partition ID, it will chose the one existing by default
+        #You can press L here to check in all the available IDs or jump this step
+        8e #To choose Linux LVM
+        w #To save changes and exit
+        fdisk -l <disk_path> #To verify the change
+
+   Example: 
+
+   ![partitiontype](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/partitiontype.jpg)
+
+6. Create a second physical volume, volume group and logical volume and verify:
+
+        pvcreate <path_to_partition>
+        vgcreate <volume_group_name> <path_to_partition>
+        lvcreate -l 100%FREE -n <logical_volume_name> <volume_group_name>
+        pvs |grep <disk_name>
+        vgs |grep <volume_group_name>
+        lvs |grep <logical_volume_name>
+
+   Example:
+
+ ![lv2](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/lv2.jpg)
+
+
+ 7. Format the logical volume using xfs filesystem type and add the fstab entry, mount and verify:
+
+        mkfs.xfs <logical_volume_path>
+        mkdir <new_directory_path>
+        echo "<logical_volume_path>  <mount_directory_path> xfs defaults,nofail 0 0" >> /etc/fstab
+        mount -a
+        df -Th|grep <new_directory_name>
+
+Example: 
+
+ ![format2](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/format2.jpg)
+
+ 
