@@ -271,5 +271,21 @@ Example:
 ### Scenario 3
 #### Extend the existing disk and resize the LVM by creating new partitions
 
+1. Stop the VM and resize the same second disk attached to it from 8GB to 16GB.   Start the VM, connect to it, switch to root account and check on it.
+2. Identify the disk and create the second partition:
+
+        lsblk
+        fdisk <disk_path>
+        n #To create the new partition
+        p #select p or just hit on enter to select default, we're creating a primary partition.
+        2 #Select partition number or just hit on enter to select the default number.  If you select manually, it needs to be different id from previously created partition.
+        16777216 #Hit on enter to determine the starting point of the partition.  Default will select the next available cylinder on the drive.
+        33554431  #Hit on enter to select all the available space in disk (remainin 8GB)
+        w #To write the partition table changes and exit fdisk command.
+
+Example: 
+
+ ![resize3](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/resize3.jpg)
+
 
 
