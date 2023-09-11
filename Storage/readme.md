@@ -110,5 +110,41 @@ In the output we marked 3 columns, Name, Size and Type.   To identify the disks 
 
 ![verify2](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/verify2.jpg)
         
+13.  Resize the physical volume and verify the size:
+
+         pvresize <path_to_disk>
+         vgdisplay <volume_group>
+
+     Example:
+     
+![pvresize](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/pvresize.jpg)
+     
+
+14.  Extend the logical volume using 3GB and verify the size:
+
+         lvextend -L +3G /dev/testvg/testlv
+         lvs
+         df -Th |grep test
+
+     Example:
+
+![lvresize](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/lvresize.jpg)
+
+**Note:** We can see the logical volume size got change but still filesystem size will not be changed verify using below commands.   We need to extend the filesystem using **xfs_growfs** command for xfs filesystems and **resize2fs** for ext4 filesystems.
+
+15.  Extend the filesystem using the below commands and verify the size and check the myfile.dat checksum for consistency:
+
+         xfs_growfs /testdisk
+         df -Th |grep test
+         md5sum /testdisk/myfile.dat
+
+Example: 
+
+![fsresize](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/fsresize.jpg)
 
 
+
+### Scenario 1
+#### Extend the existing disk and resize the LVM (In this case LVM is created on top of partitions of disk)
+
+1. 
