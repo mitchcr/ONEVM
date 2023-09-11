@@ -288,4 +288,27 @@ Example:
  ![resize3](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/resize3.jpg)
 
 
+3. Run the partprobe command to scan the newly modified partition table and check:
+
+        partprobe
+        fdisk -l <disk_path>
+
+Example: 
+
+ ![partprobe](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/partprobe.jpg)
+
+4.  Toggle the partition ID for LVM:
+
+        fdisk <disk_path>
+        t #Press t to toggle
+        2 #Select the partition id you just created, if you choose  default one it will be number 2. You can also hit enter to choose default.
+        8e #Type 8e to select the LVM id
+        w #write the changes and exit the command
+        fdisk -l <disk_path> #To check on the partition table and changes
+
+Example: 
+
+ ![toggle](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/toggle.jpg)
+
+
 
