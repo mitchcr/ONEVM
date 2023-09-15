@@ -415,7 +415,7 @@ This laboratory is to create a file share and test the mounting on a Linux VM. W
 
  4.  Proceed to install the prerequisite.  Ensure cifs-utils package is installed.  Follow the instructions provided in the following link, if necessary, change the tab so you use instructions for the correct Operative System:
 
-[Mount SMB Azure file share on Linux Prerequisites](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-linux?tabs=RHEL%2Csmb311#prerequisites)
+        [Mount SMB Azure file share on Linux Prerequisites](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-linux?tabs=RHEL%2Csmb311#prerequisites)
 
 5. Go back to the Azure Portal, go to the file share and click in "Connect".  Then, proceed to select the Operative System "Linux" and finally click in "Show Script":
 
@@ -427,7 +427,6 @@ This laboratory is to create a file share and test the mounting on a Linux VM. W
 7.  Check you have the file share mounted and it's added to the fstab with the following commands:
 
         df -h |grep test
-
         grep test /etc/fstab
     
 9.  Create a test file with name "file":
@@ -568,3 +567,14 @@ Example:
 [How to mount an Azure Blob Storage container on Linux with BlobFuse2](https://learn.microsoft.com/en-us/azure/storage/blobs/blobfuse2-how-to-deploy?tabs=RHEL)
 
 [BaseConfig.yaml](https://github.com/Azure/azure-storage-fuse/blob/main/setup/baseConfig.yaml)
+
+
+## Laboratory 4:  fstab options
+
+### About this Lab
+
+- This course/module was created to show fstab file options
+- It will take approximately 30 minutes
+- This Lab provides hands-on activities.
+- After this course/module you will be able to:
+      - Verify the mount options in /etc/fstab file and know how it will impact the Operative System. 
