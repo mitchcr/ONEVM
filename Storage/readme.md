@@ -383,6 +383,71 @@ LVM offers a great flexibility on doing hot resizes without the need to unmount 
 
 [Linux LVM Cheat Sheet / Quick Reference](https://unixutils.com/lvm-cheat-sheet-quick-reference/)
 
+
+
+## Lab 2: Azure file share
+
+### About this Lab
+
+- This course/module was created for Storage Lab Azure file share
+- It will take approximately 15 minutes
+- This module introduces you to the tools needed to work with file share in Linux.
+- This Lab provides hands-on activities.
+- After this course/module you will be able to:
+      - Create and configure file share to mount the share to the VM.
+
+### Scenario
+This laboratory is to create a file share and test the mounting on a Linux VM. We're going to use same VM than previous Laboratory. 
+
+### Instructions
+
+1. Using Azure Portal, go to the Resource group you created for the training.  Search for the storage account created with previous Laboratory, click on the storage account name.  Then click on the left pannel in "File shares"
+
+ ![step1fileshare](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step1fileshare.jpg)
+
+ 2.  Click in "+File share" and create a file with name "testshare", you can compare the options in the following screenshot, click in "Create": 
+
+![step2fileshare](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step2fileshare.jpg)
+
+ 3.  Using your preferred SSH client, connect to the Azure VM and switch to root account with command:
+
+         sudo -i 
+
+ 4.  Proceed to install the prerequisite.  Ensure cifs-utils package is installed.  Follow the instructions provided in the following link, if necessary, change the tab so you use instructions for the correct Operative System:
+
+[Mount SMB Azure file share on Linux Prerequisites](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-linux?tabs=RHEL%2Csmb311#prerequisites)
+
+5. Go back to the Azure Portal, go to the file share and click in "Connect".  Then, proceed to select the Operative System "Linux" and finally click in "Show Script":
+
+![step3fileshare](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step3fileshare.jpg)
+
+6. Copy the infomation showed in the script.  Go back to the connection you made with the VM using SSH client and paste the commands in the prompt.
+
+
+7.  Check you have the file share mounted and it's added to the fstab with the following commands:
+
+        df -h |grep test
+
+        grep test /etc/fstab
+    
+9.  Create a test file with name "file":
+
+        touch /mnt/testshare/file
+        ls -l /mnt/testshare/file
+
+11.  Go to Azure Portal to the file share, click in "Browse" and verify the file is in place:
+
+![step4fileshare](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step4fileshare.jpg)
+
+### Your Goal
+At the end of this lab, you should know ho to create a file share and configure it in a Linux VM. 
+
+### References
+
+[What is Azure Files?](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction)
+
+
+
 ## Lab 3: BlobFuse2
 
 ### About this Lab
