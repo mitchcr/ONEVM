@@ -273,7 +273,7 @@ In this scenario your customer may have installed the new kernel or patched the 
 2. Once the VM is created, check the non-boot scenario, the VM will stuck on boot due to initrd issue and a kernel panic will be showed in the Serial Console. Analyze the error.
 3. Using WSL or Cloud Shell fix the issue executing the following commands, remember to replace the information like resource group with the correct one:
 
-       az vm repair create --resource-group "<resource_group_of_failed_vm>" --name "<Failed_VM_Name>" --verbose --repair-username "<temporary_usename>" --repair-password "<password>"
+       az vm repair create --resource-group "<resource_group_of_failed_vm>" --name "<Failed_VM_Name>" --verbose --repair-username "<temporary_username>" --repair-password "<password>" #This command will ask if you need a public ip address, answer "n"
        az vm repair run --verbose --resource-group "<resource_group_of_failed_vm>" --name "<Failed_VM_Name>" --run-id linux-alar-fki --parameters initrd --run-on-repair
        az vm repair restore --verbose --resource-group "<resource_group_of_failed_vm>" --name "<Failed_VM_Name>"
 
