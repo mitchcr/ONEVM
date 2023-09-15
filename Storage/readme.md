@@ -365,7 +365,7 @@ Example:
 
  ![extend4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/extend4.jpg)
 
- **Note: **  Remember to delete all the resources once you have completed the Laboratories. 
+ **Note:**  Remember to delete all the resources once you have completed the Laboratories. 
 
  ### Your Goal 
 
@@ -392,15 +392,15 @@ LVM offers a great flexibility on doing hot resizes without the need to unmount 
 - This module introduces you to the use of blobfuse.
 - This Lab provides hands-on activities.
 - After this course/module you will be able to:
-      - Install and configure blobfuse to mount the container from blob storage.
+      - Install and configure blobfuse to mount the container from blob storage using configuration file.
 
 ### Deployment instructions
 
-1. Proceed to create a Red Hat 8.8 VM using the following button, if you want to deploy in a different tab, please use right-click:
+1. Proceed to create a Red Hat 8.8 VM using the following button, if you want to deploy in a different tab, please use right-click. Also please remember to complete the empty spaces:
 
     [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fStorage%2fStorageLab3.json)
 
-2. Once the VM is created, connect to it using SSH protocol and switch to root account and check on Linux version running following commands:
+2. Once the VM is created, connect to it using SSH protocol, switch to root account and check on Linux version running following commands:
 
         sudo -i
         cat /etc/*-release
@@ -419,7 +419,7 @@ Example:
   ![download](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/download.jpg)
 
 
-5. Install the package:
+5. Install the blobfuse2 package:
 
        dnf install blobfuse2 -y
 
@@ -427,7 +427,7 @@ Example:
 
   ![install](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/install.jpg)
 
-6. Create an empty directory to be used as mount point of the blob storage container:
+6. Create an empty directory to be used as mount point for the blob storage container:
 
         mkdir <directory_path>
 
@@ -478,7 +478,7 @@ Example:
           mode: key
           container: <container_name>
 
-**Note: **  You can get your account-key from Azure Portal, in the Storage Account, select "Access keys" from left panel and then click in "Show" to copy from there.
+ **Note:**  You can get your account-key from Azure Portal, in the Storage Account, select "Access keys" from left panel and then click in "Show" to copy from there.
 
 ![key](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/key.jpg)
 
