@@ -537,7 +537,7 @@ Example:
         azstorage:
           type: block
           account-name: <your_storage_account_name>
-          account-key: '<your_storage_account_key' #Check on the note below
+          account-key: '<your_storage_account_key>' #Check on the note below
           endpoint: https://<your_storage_account_name>.blob.core.windows.net
           mode: key
           container: <container_name>
@@ -578,3 +578,90 @@ Example:
 - This Lab provides hands-on activities.
 - After this course/module you will be able to:
       - Verify the mount options in /etc/fstab file and know how it will impact the Operative System. 
+
+### Instructions
+
+1.  For this laboratory we are going to use the same VM than previous laboratory.   Please proceed to connect to the VM using the SSH client you prefer, switch to root account and review the list of block devices attached to it with command:
+
+        sudo -i
+        lsblk
+
+3.  Go to Azure Portal, create and attach a 4GB data disk.
+   
+4.  Return to the SSH connection and list the block devices attached to the VM, identify the new disk:
+
+        lsblk
+
+5.  Create a partition on the attached disk using all the space in following example we are using /dev/sdc as the newly attached disk, please replace the information with the correct one for your case:
+
+        fdisk <disk_path>  
+        n #this will be creating a new partition
+        p  #You can also just hit on "enter" instead of writing letter "p" this value will takes up the default value, which is primary partition.
+        1  #In this step you can choose a partition number, it doesn't have to be number 1, but by default it chooses number 1, so you can hit also on enter or choose the number of your partition.
+        2048  #This step is to determine the starting point for the partition, default will select the next available cylinder on the drive, hit on enter o type the first available number.
+        8388607  #Here you can select the partition size, hit on enter to take the last value (using entire disk) or select the size you want for the partition for the lab we're using all disk.
+        p  #this will print the partition table for this disk, created partition should appear here.
+        w  #This letter will allow you to seve and exit fdisk command, changes will be permanent after this command is executed. 
+
+    ![step1lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step1lab4.jpg)
+   
+6.  Run the **partprobe** command to scan the newly modified partition table and verify with the below commands:
+
+        cat /proc/partitions
+        fdisk -l
+        lsblk |grep <partition_name>
+
+    ![step2lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step2lab4.jpg)
+
+7.   Format created parition with XFS filesystem type.
+
+         mkfs.xfg <partition_path>
+
+     ![step3lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step3lab4.jpg)
+    
+8.  Create an empty directory to be used as mount point:
+
+        mkdir <new_directory_path>
+
+    ![step4lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step4lab4.jpg)
+    
+
+9.  Get the UUID of the partition, add the entry in fstab file using the read-only(ro) option, mount it and check:
+
+        blkid <partition_path>
+        echo "UUID=<UUID>   <mount_directory_path>   xfs   defaults,ro  0 0" >> /etc/fstab
+        mount -a
+        df -Th|grep <mount_point>
+
+    ![step5lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step5lab4.jpg)
+
+11.  Go to the mounted directory and create an empty file:
+
+         cd <mounted_directory>
+         touch <file_name>
+
+     ![step6lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step6lab4.jpg) 
+
+**Note:** As you can see the filesystem is read-only so you cannot modify it.  Read-write options will come by defaults for the local disk, so no need to specify in the fstab or mount options. For the remote filesystems we need to explicitly specify the read-write option.
+
+12.  Let's try with the NOEXEC option, which will not allow user to execute anything on the filesystem.   Proceed to umount the filesystem we just created, modify the _/etc/fstab_ file in the device line, changing the read-only(ro) option by "noexec" option and mount the filesystem again:
+
+         cd / #To move out of the filesystem
+         umount <directory>
+         vi /etc/fstab   #inside change the options and save the file
+         cat /etc/fstab |grep <directory> #to verify the changes
+         mount -a
+         df -Th |grep <directory>
+
+     ![step7lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step7lab4.jpg) 
+
+13.  Create a new file and add the contents below following these commands, replace the directory name below:
+
+        cat <<EOF >file1.sh
+        #!/bin/bash
+        mkdir <directory>/testdir
+        EOF
+
+
+
+#### Return to the [Main Menu](https://github.com/mitchcr/ONEVM/blob/main/readme.md)
