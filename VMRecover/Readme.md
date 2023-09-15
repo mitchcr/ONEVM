@@ -2,10 +2,10 @@
 
 ## About this Lab
 
-- This course/module was created to VM Recover LAB
+- This course/module was created for VM Recover LAB
 - It will take aproximately 60 minutes.
-- This module introduces you to the tools to VM Recover.
-- This Lab provides handos-on activities.
+- This module introduces you to the tools to Recover a VM.
+- This Lab provides hands-on activities.
 - After this course/module you will be able to recover a Linux configuration file using the sed tool.
 
 ## Lab 1: Corruption of the sshd_config file
@@ -15,78 +15,83 @@ In this scenario your customer may have upgraded a VM, installed new software or
 
 ### Deployment instructions
 
-1. Deploy an Ubuntu 20.04 VM using the link below, it will be asking for your public ssh key, be ready to provide it.
+1. Deploy an Ubuntu 20.04 VM using the link below, it will be asking for your public ssh key, be ready to provide it.  Also you need to complete information like Resource Group, pay attention to the empty spaces and change them.
 
     [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fVMRecover%2fVMRecoverLab1.json)
 
-2. Once the VM is created, try to connect using SSH protocol.
-3. There are various methods to recover this scenario. In this instance we are going to add an additional Linux user to the system and access the Serial Console.
+2. Once the VM is created, try to connect using SSH protocol, you can use any client you prefer, some examples are WSL2, CMD, CloudShell, etc.
+   
+3. There are various methods to recover this scenario. In this instance we are going to add an additional Linux user, selecting the "Reset Password" option in Azure Portal, please select the "Reset password" option and try access the Serial Console.
    
 _Question:_ Why do you think it's not possible to access the serial console with your existing azureadmin user?
   
 _Answer:_ You have passwordless login, hence are not able to supply a private key certificate via the Serial console.   Adding a new Linux user with password and super user privileges will allow you to gain shell acess.   Please proceed to add a new account using the "Reset password" option in Azure Portal and provide a password for this new account.
 
-5. Proceed to connect to the VM using the Serial Console and the user you created.
-6. Once connected via that console verify the status of the SSH daemon
+4. Proceed to connect to the VM using the Serial Console, an enter should be showing to you the Prompt.   Introduce the user information you just created and password.
+5. Once connected via that console verify the status of the SSH daemon:
 
            sudo -i #to switch to root account
    
-           systemctl status sshd
+           systemctl status sshd  #If this command doesn't return you to the prompt, press letter "q" to quit the pager.
 
-7. You can see the service has failed to start.   Try restarting it using: 
+6. You can see the service has failed to start.   Try restarting it using: 
 
         systemctl restart sshd
 
-8. Check the status of the service again:
+7. Check the status of the service again:
 
            systemctl status sshd
 
-9.  As it continues failing, now let's go and check on the contents of the configuration file:
+8.  As it continues failing, now let's go and check on the contents of the configuration file:
 
            /etc/ssh/sshd_config
 
-10.  As you see, there is 1 erroneous line at the very end of the file, this text is causing the SSHD to fail when being restarted.
-11.  The SSHD binary has a "-t" option that will test the integrity of its configuration file.  Run the command to verify:
+9.  As you see, there is 1 erroneous line at the very end of the file, this text is causing the SSHD to fail when being restarted.
+10.  The SSHD binary has a "-t" option that will test the integrity of its configuration file.  Run the command to verify:
     
             sshd -t
 
+  **Note:** It's possible that a message pops up that says "missing privilege separation directory: /run/sshd" it's safe to ignore this warning.
+  
 You should see the configuration errors. 
 
-12. The configuration file can be corrected using various Linux tools with editors such as:  **vi, vim, nano** or file manipulation commands, for example: **sed, awk, nawk**
-13. Use your favorite to remove the problematic line in sshd configuration file.
-14. Verify you removed the line:
+11. The configuration file can be corrected using various Linux tools with editors such as:  **vi, vim, nano** or file manipulation commands, for example: **sed, awk, nawk**
+12. Use your favorite editor to remove the problematic line in sshd configuration file.
+13. Verify you removed the line:
 
         cat /etc/ssh/sshd_config
         sshd -t
 
-15. Once the file has been corrected restart and verify the SSH service:
+  **Note:** It's possible that a message pops up that says "missing privilege separation directory: /run/sshd" it's safe to ignore this warning. 
+
+14. Once the file has been corrected restart and verify the SSH service:
 
         systemctl restart sshd
         systemctl status sshd
 
-16. List the daemon process using _ps_ command:
+15. List the daemon process using _ps_ command:
 
         ps -eaf |grep -i sshd
 
-17.  Check it is listening for new connections:
+16.  Check if it is listening for new connections:
 
             ss -tupln|grep -i ssh
 
-18. Ensure you are stil _root_; you can check using the comand _id_
+17. Ensure you are stil _root_; you can check using the comand _id_
 
         id
     
-20. Track the SSH connection requests using the following command:
+18. Track the SSH connection requests using the following command:
 
         tail -f /var/log/auth.log
     
-22. Use a SSH client tool, such as _putty_ or _WSL_ to connect to this VM.
+19. Use a SSH client tool, such as _putty_ or _WSL_ to connect to this VM.
 
     
-24. Check back in the Serial Console, the log file you are tailing in the Serial Console will show the connect and eventual disconnect messages, in this particular case we will not have any new lines (this is expected).  Press _Control+C_ to interrupt.  The service is currently up and running, but the SSH connections are still failing.  These scenarios occur in real life where is not just one thing that could be happening.  In Lab2, we'll continue the troubleshooting to finish fixing current scenario. 
+20. Check back in the Serial Console, the log file you are tailing in the Serial Console will show the connect and eventual disconnect messages, in this particular case we will not have any new lines (this is expected).  Press _Control+C_ to interrupt.  The service is currently up and running, but the SSH connections are still failing.  These scenarios occur in real life where is not just one thing that could be happening.  In Lab2, we'll continue the troubleshooting to finish fixing current scenario. 
 
 ### Your goal 
-Let's summarize what you ahve learned after this lab: 
+Let's summarize what you have learned after this lab: 
 - Add a new local Linux user using the portal as our original account is passwordless.
 - Verify the integrity of the sshd_config file using _sshd -t_.
 - Delete erroneous entries in the sshd_config file.
@@ -116,17 +121,17 @@ For this lab we'll continue using the VM created previously as connections using
 
     grep -i port /etc/ssh/sshd_config
 
-4.  To fix the issue, go to the Azure Portal, select the VM.  Then, go to "Run command", select "RunShellScript" and add the below two commands to the "Linux Shell Script" section:
+4.  To fix the issue, go to the Azure Portal, select the VM.  Then, go to "Run command", select "RunShellScript" and add the below three commands to the "Linux Shell Script" section:
 
         sed -i 's/Port 2222/Port 22/g' /etc/ssh/sshd_config
         sshd -t
         systemctl restart sshd
     
-6.  Select "Run" and wait until the execution is done, you'll get an output.  Check on it, the standard output(stdout) and standard error (stderr) should be empty.
+5.  Select "Run" and wait until the execution is done, you'll get an output.  Check on it, the standard output(stdout) and standard error (stderr) should be empty.
    
-7. Try to loging to the VM using an SSH client and port 22 and verify now you can access to it.
+6. Try to loging to the VM using an SSH client and port 22 and verify now you can access to it.  If you can't connect it, review the previous steps as you could miss some of them.
    
-8.  Check the status of the sshd service with the following commands:
+7.  Check the status of the sshd service with the following commands(in the connection you just established in previous step):
 
         systemctl status sshd
         journalctl -u sshd
@@ -160,13 +165,13 @@ Best practice is to utilize the UUID when mounting additional data disks or RAID
 
         az extension add --name vm-repair
 
-5. Create a repair vm using the extension:
+5. Create a repair vm using the extension, please proceed to replace the information betwen "<>" symbols with the correct one:
 
         az vm repair create -g <resource_group_name_of_failing_vm> -n <failed_vm_name> --repair-username <temporary_username> --repair-password <temporary_password> --verbose
 
-Replace the information betwen <> accordily. 
-
-6. At the end of the command execution you will have the Repair VM name, please proceed to connect to it using the username and password selected.
+ **Note:** The execution on this command wil ask you if the VM requires a public ip, answer "y".
+ 
+6. At the end of the command execution you will have the Repair VM name, please proceed to connect to it using the username and password selected and SSH client you prefer, next commands need to be executed in that connection.
 
 7. Switch to root account using command:
 
@@ -195,7 +200,7 @@ Replace the information betwen <> accordily.
 
           mount <partition> /rescue
 
-      for example: _mount /dev/sdc1 /rescue_  remember to mount the correct partition, the partition name and number can change.
+      for example: _mount /dev/sdc1 /rescue_  remember to mount the correct partition, the partition name and number can change. You should have no output while mounting.
 
 12. Edit the _/repair/etc/fstab_ file and choose your preferred option to fix the issue:
 - removing the problematic lines.
