@@ -6,7 +6,7 @@
 - This module introduces you to the tools to collect OS details.
 - This Lab provides hands-on activities.
 - After this course/module you will be able to:
-  - Create a sos or supportconfig report
+  - Create sos or supportconfig reports
   - Enable specific modules
   - Cope with not enough space issues
 
@@ -14,11 +14,11 @@
 
 ### Instructions
 
-1.  Deploy a Red Hat VM using the link below:
+1.  Deploy a Red Hat VM using the link below, please fill the empty options as resource group for example:
   
   [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fCollectOSDetails%2fCollectOSDetails-Lab1RHEL.json)
 
-2.  Deploy a SuSE VM using the link below:
+2.  Deploy a SuSE VM using the link below, please fill the empty options as resource group for example:
 
   [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fCollectOSDetails%2fCollectOSDetails-Lab1SuSE.json)
 
@@ -32,7 +32,7 @@
 
      - Review what plugins are currently enabled/disabled
      - What plugins are available
-     - Edit the sosreport configuration file /etc/sos.conf
+     - Edit the sosreport configuration file /etc/sos/sos.conf
      - Disable SELinux plugin
      - Run sosreport again and compare size and contents with previous report.
 
@@ -40,7 +40,11 @@
 
          sosreport -e azure
 
-     - Review the report and contents and look for the WALinuxAgent information collected.  The Azure plug-in module collects WALinuxAgent log and configuration details.
+     - At the end of the command execution, the output will show you a file name inside the /var/tmp path that start with "sosreport-<something-variable>".  That's a tar.xz file.  Review the report and contents of it.   To do that you need to decompress information of the tar.xz file with command:
+
+             tar xvf <sosreport-file-path>
+     
+      After the command execution it will create a directory and inside it will have the collected WALinuxAgent information. You can review it with your preferred commands.  The Azure plug-in module collects WALinuxAgent log and configuration details.
 
   4. Generate a report with all logs:
 
@@ -50,24 +54,28 @@
 
            sosreport --all-logs
        
-     - Compare the size of the original sosreport archive with this one.
+     - Compare the size of the original sosreport archive with this one. (Hint:  ls -l provides you more detailed information on the files)
      - If you ran out of space, use the _--tmp-dir_ option to specify an alternate location.
 
 #### At the SuSE VM: 
 
-  1.  Switch to root account and generate a report:
+  1.  Switch to root account and install the supportutils package:
+
+          zypper install supportutils
+      
+  2.  Generate a report:
 
           supportconfig
 
       - Review the contents of the file generated, look the contents of several of the *.txt files created
 
-  2. Run a report with the minimal option:
+  3. Run a report with the minimal option:
 
          supportconfig -m
 
       - Compare the size with the original archive.
 
-  3. Run a report again limiting the report to the BOOT topic:
+  4. Run a report again limiting the report to the BOOT topic:
 
          supportconfig -i BOOT
 
