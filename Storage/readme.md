@@ -657,12 +657,48 @@ Example:
 
 13.  Create a new file and add the contents below following these commands, replace the directory name below:
 
-         cat <<EOF >file1.sh
+         cat <<EOF > <directory>/file1.sh
          #!/bin/bash
          mkdir <directory>/testdir
          EOF
+     ![step8lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step8lab4.jpg)
 
-14. 
+14. Provide execute permissions to the file and try to execute it:
+
+        chmod +x <directory>/file1.sh
+        <directory>/file1.sh
+
+     ![step9lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step9lab4.jpg)
+
+15.  Umount the filesystem, remove the "noexec" option, mount the filesystem back and try to execute the script again:
+
+         umount <directory>
+         vi /etc/fstab #inside remove the noexec option and save the file
+         cat /etc/fstab |grep <directory> #to verify the changes
+         mount -a
+         cd <directory>
+         ./file1.sh
+
+     ![step10lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step10lab4.jpg)
+
+**NOSUID Option**
+
+Filesystems mounted with the nosuid option do not allow set-user-identifier (SUID) or set-group-identifier (SGID) bits to take effect. In other words, even if an executable file has the SUID bit set, it will not be executed as the file's owner, instead it will execute with the privileges of user who is executing.
+
+**Example files>**
+
+        /bin/passwd
+        /bin/su
+        /usr/bin/mount 
+
+#### Your goal
+At the end of this lab, you should know how to:
+- Use the mount point options in the _fstab_ file and how it will impact on the operative system level.
+
+#### References 
+[Filesystem table (/etc/fstab) Cheatsheet](https://dcjtech.info/wp-content/uploads/2016/06/Filesystem-Table-etc-fstab-Cheatsheet.pdf)
+
+
 
 
 #### Return to the [Main Menu](https://github.com/mitchcr/ONEVM/blob/main/readme.md)
