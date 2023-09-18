@@ -657,11 +657,12 @@ Example:
 
 13.  Create a new file and add the contents below following these commands, replace the directory name below:
 
-        cat <<EOF >file1.sh
-        #!/bin/bash
-        mkdir <directory>/testdir
-        EOF
+         cat <<EOF >file1.sh
+         #!/bin/bash
+         mkdir <directory>/testdir
+         EOF
 
+14. 
 
 
 #### Return to the [Main Menu](https://github.com/mitchcr/ONEVM/blob/main/readme.md)
