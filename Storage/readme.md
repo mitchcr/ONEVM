@@ -158,7 +158,7 @@ Example:
 ![fsresize](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/fsresize.jpg)
 
 
-[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
+[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md#storage-besides-lvm-laboratories)
 
 
 ### Scenario 2
@@ -285,7 +285,7 @@ Example:
  ![secgrowth](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/secgrowth.jpg)
 
 
-[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
+[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md#storage-besides-lvm-laboratories)
 
 
 ### Scenario 3
@@ -347,7 +347,7 @@ Example:
  ![growth2](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/growth2.jpg)
 
 
-[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
+[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md#storage-besides-lvm-laboratories)
 
 
 
@@ -410,7 +410,7 @@ LVM offers a great flexibility on doing hot resizes without the need to unmount 
 
 
 
-[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
+[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md#storage-besides-lvm-laboratories)
 
 
 
@@ -475,7 +475,7 @@ At the end of this lab, you should know ho to create a file share and configure 
 [What is Azure Files?](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction)
 
 
-[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
+[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md#storage-besides-lvm-laboratories)
 
 
 
@@ -602,7 +602,7 @@ Example:
 
 
 
-[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
+[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md#storage-besides-lvm-laboratories)
 
 
 ## Laboratory 4:  fstab options
@@ -736,6 +736,6 @@ At the end of this lab, you should know how to:
 
 
 
-[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
+[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md#storage-besides-lvm-laboratories)
 
 #### Return to the [Main Menu](https://github.com/mitchcr/ONEVM/blob/main/readme.md)
