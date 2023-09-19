@@ -103,7 +103,7 @@ In the output we marked 3 columns, Name, Size and Type.   To identify the disks 
 
 ![format](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/format.jpg)
 
-11.  Create one file of size 1GB and verify the md5sum and note it down to check later after resize of disk, change the names if needed:
+10.  Create one file of size 1GB and verify the md5sum and note it down to check later after resize of disk, change the names if needed:
 
          dd if=/dev/zero of=/testdisk/myfile.dat bs=1024k count=1000
          md5sum /testdisk/myfile.dat
@@ -112,7 +112,7 @@ In the output we marked 3 columns, Name, Size and Type.   To identify the disks 
 
 ![filecreation](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/filecreation.jpg)
 
-12. Go to the Azure Portal, stop the VM named storagelab01 and resize the disk **datadisk0** from 4GB to 8GB.  Start the VM, connect to it, switch to root account and verify from OS level:
+11. Go to the Azure Portal, stop the VM named storagelab01 and resize the disk **datadisk0** from 4GB to 8GB.  Start the VM, connect to it, switch to root account and verify from OS level:
 
 ![diskresize1](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/diskresize1.jpg)
 
@@ -125,7 +125,7 @@ In the output we marked 3 columns, Name, Size and Type.   To identify the disks 
 
 ![verify2](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/verify2.jpg)
         
-13.  Resize the physical volume and verify the size:
+12.  Resize the physical volume and verify the size:
 
          pvresize <path_to_disk>
          vgdisplay <volume_group>
@@ -135,7 +135,7 @@ In the output we marked 3 columns, Name, Size and Type.   To identify the disks 
 ![pvresize](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/pvresize.jpg)
      
 
-14.  Extend the logical volume using 3GB and verify the size:
+13.  Extend the logical volume using 3GB and verify the size:
 
          lvextend -L +3G /dev/testvg/testlv
          lvs
@@ -147,7 +147,7 @@ In the output we marked 3 columns, Name, Size and Type.   To identify the disks 
 
 **Note:** We can see the logical volume size got change but still filesystem size will not be changed verify using below commands.   We need to extend the filesystem using **xfs_growfs** command for xfs filesystems and **resize2fs** for ext4 filesystems.
 
-15.  Extend the filesystem using the below commands and verify the size and check the myfile.dat checksum for consistency:
+14.  Extend the filesystem using the below commands and verify the size and check the myfile.dat checksum for consistency:
 
          xfs_growfs /testdisk
          df -Th |grep test
@@ -157,6 +157,8 @@ Example:
 
 ![fsresize](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/fsresize.jpg)
 
+
+[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
 
 
 ### Scenario 2
@@ -283,6 +285,9 @@ Example:
  ![secgrowth](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/secgrowth.jpg)
 
 
+[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
+
+
 ### Scenario 3
 #### Extend the existing disk and resize the LVM by creating new partitions
 
@@ -342,6 +347,10 @@ Example:
  ![growth2](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/growth2.jpg)
 
 
+[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
+
+
+
 ### Scenario 4
 #### Extend the logical volume by adding new disk to the volume group
 
@@ -360,7 +369,7 @@ Example:
 
  ![part4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/part4.jpg)
 
-4.  Create a new physical volume,extend volume group and check:
+3.  Create a new physical volume,extend volume group and check:
 
         pvcreate <partition_path>
         vgextend <volume_group_name> <partition_path>
@@ -371,7 +380,7 @@ Example:
 
  ![extend](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/extend.jpg)
 
-5. Extend the logical volume, resize the filesystem and check:
+4. Extend the logical volume, resize the filesystem and check:
 
         lvextend -L +4G <logical_volume>
         xfs_growfs <filesystem>
@@ -397,6 +406,11 @@ LVM offers a great flexibility on doing hot resizes without the need to unmount 
 [How to extend a logical volume and its filesystem online in Red Hat Enterprise Linux?](https://access.redhat.com/solutions/24770)
 
 [Linux LVM Cheat Sheet / Quick Reference](https://unixutils.com/lvm-cheat-sheet-quick-reference/)
+
+
+
+
+[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
 
 
 
@@ -444,12 +458,12 @@ This laboratory is to create a file share and test the mounting on a Linux VM. W
         df -h |grep test
         grep test /etc/fstab
     
-9.  Create a test file with name "file":
+8.  Create a test file with name "file":
 
         touch /mnt/testshare/file
         ls -l /mnt/testshare/file
 
-11.  Go to Azure Portal to the file share, click in "Browse" and verify the file is in place:
+9.  Go to Azure Portal to the file share, click in "Browse" and verify the file is in place:
 
 ![step4fileshare](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step4fileshare.jpg)
 
@@ -459,6 +473,9 @@ At the end of this lab, you should know ho to create a file share and configure 
 ### References
 
 [What is Azure Files?](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction)
+
+
+[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
 
 
 
@@ -489,7 +506,7 @@ Example:
  ![version](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/version.jpg)
 
    
-4.  Download BlobFuse2 using Microsoft software repositories for Linux:
+3.  Download BlobFuse2 using Microsoft software repositories for Linux:
 
         rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
 
@@ -498,7 +515,7 @@ Example:
   ![download](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/download.jpg)
 
 
-5. Install the blobfuse2 package:
+4. Install the blobfuse2 package:
 
        dnf install blobfuse2 -y
 
@@ -506,7 +523,7 @@ Example:
 
   ![install](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/install.jpg)
 
-6. Create an empty directory to be used as mount point for the blob storage container:
+5. Create an empty directory to be used as mount point for the blob storage container:
 
         mkdir <directory_path>
 
@@ -515,14 +532,14 @@ Example:
 ![mountpoint](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/mountpoint.jpg)
 
 
-8. Go to Azure Portal, search for your Resource group and search for the storage account created.  Click on it and then click in left panel in "Containers".  Create a new Container with the name you prefer.
+6. Go to Azure Portal, search for your Resource group and search for the storage account created.  Click on it and then click in left panel in "Containers".  Create a new Container with the name you prefer.
 
 Example: 
 
 ![containers](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/containers.jpg)
 
 
-9. In Azure VM, create a YAML configuration file to be used to mount the blobfuse, in the example we created under /etc directory, the file should contain the following information:
+7. In Azure VM, create a YAML configuration file to be used to mount the blobfuse, in the example we created under /etc directory, the file should contain the following information:
 
         allow-other: true
 
@@ -567,7 +584,7 @@ Example:
 ![file](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/file.jpg)
 
 
-11.  Mount the blobfuse in the directory created with command:
+8.  Mount the blobfuse in the directory created with command:
 
          blobfuse2 mount <directory_name> --config-file=<configuration_file>
 
@@ -582,6 +599,10 @@ Example:
 [How to mount an Azure Blob Storage container on Linux with BlobFuse2](https://learn.microsoft.com/en-us/azure/storage/blobs/blobfuse2-how-to-deploy?tabs=RHEL)
 
 [BaseConfig.yaml](https://github.com/Azure/azure-storage-fuse/blob/main/setup/baseConfig.yaml)
+
+
+
+[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
 
 
 ## Laboratory 4:  fstab options
@@ -601,13 +622,13 @@ Example:
         sudo -i
         lsblk
 
-3.  Go to Azure Portal, create and attach a 4GB data disk.
+2.  Go to Azure Portal, create and attach a 4GB data disk.
    
-4.  Return to the SSH connection and list the block devices attached to the VM, identify the new disk:
+3.  Return to the SSH connection and list the block devices attached to the VM, identify the new disk:
 
         lsblk
 
-5.  Create a partition on the attached disk using all the space in following example we are using /dev/sdc as the newly attached disk, please replace the information with the correct one for your case:
+4.  Create a partition on the attached disk using all the space in following example we are using /dev/sdc as the newly attached disk, please replace the information with the correct one for your case:
 
         fdisk <disk_path>  
         n #this will be creating a new partition
@@ -620,7 +641,7 @@ Example:
 
     ![step1lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step1lab4.jpg)
    
-6.  Run the **partprobe** command to scan the newly modified partition table and verify with the below commands:
+5.  Run the **partprobe** command to scan the newly modified partition table and verify with the below commands:
 
         cat /proc/partitions
         fdisk -l
@@ -628,20 +649,20 @@ Example:
 
     ![step2lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step2lab4.jpg)
 
-7.   Format created parition with XFS filesystem type.
+6.   Format created parition with XFS filesystem type.
 
          mkfs.xfg <partition_path>
 
      ![step3lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step3lab4.jpg)
     
-8.  Create an empty directory to be used as mount point:
+7.  Create an empty directory to be used as mount point:
 
         mkdir <new_directory_path>
 
     ![step4lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step4lab4.jpg)
     
 
-9.  Get the UUID of the partition, add the entry in fstab file using the read-only(ro) option, mount it and check:
+8.  Get the UUID of the partition, add the entry in fstab file using the read-only(ro) option, mount it and check:
 
         blkid <partition_path>
         echo "UUID=<UUID>   <mount_directory_path>   xfs   defaults,ro  0 0" >> /etc/fstab
@@ -650,7 +671,7 @@ Example:
 
     ![step5lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step5lab4.jpg)
 
-11.  Go to the mounted directory and create an empty file:
+9.  Go to the mounted directory and create an empty file:
 
          cd <mounted_directory>
          touch <file_name>
@@ -659,7 +680,7 @@ Example:
 
 **Note:** As you can see the filesystem is read-only so you cannot modify it.  Read-write options will come by defaults for the local disk, so no need to specify in the fstab or mount options. For the remote filesystems we need to explicitly specify the read-write option.
 
-12.  Let's try with the NOEXEC option, which will not allow user to execute anything on the filesystem.   Proceed to umount the filesystem we just created, modify the _/etc/fstab_ file in the device line, changing the read-only(ro) option by "noexec" option and mount the filesystem again:
+10.  Let's try with the NOEXEC option, which will not allow user to execute anything on the filesystem.   Proceed to umount the filesystem we just created, modify the _/etc/fstab_ file in the device line, changing the read-only(ro) option by "noexec" option and mount the filesystem again:
 
          cd / #To move out of the filesystem
          umount <directory>
@@ -670,7 +691,7 @@ Example:
 
      ![step7lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step7lab4.jpg) 
 
-13.  Create a new file and add the contents below following these commands, replace the directory name below:
+11.  Create a new file and add the contents below following these commands, replace the directory name below:
 
          cat <<EOF > <directory>/file1.sh
          #!/bin/bash
@@ -678,14 +699,14 @@ Example:
          EOF
      ![step8lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step8lab4.jpg)
 
-14. Provide execute permissions to the file and try to execute it:
+12. Provide execute permissions to the file and try to execute it:
 
         chmod +x <directory>/file1.sh
         <directory>/file1.sh
 
      ![step9lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step9lab4.jpg)
 
-15.  Umount the filesystem, remove the "noexec" option, mount the filesystem back and try to execute the script again:
+13.  Umount the filesystem, remove the "noexec" option, mount the filesystem back and try to execute the script again:
 
          umount <directory>
          vi /etc/fstab #inside remove the noexec option and save the file
@@ -715,5 +736,6 @@ At the end of this lab, you should know how to:
 
 
 
+[Click here to return to Storage menu](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
 
 #### Return to the [Main Menu](https://github.com/mitchcr/ONEVM/blob/main/readme.md)
