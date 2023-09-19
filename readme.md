@@ -14,6 +14,8 @@
 
 > [Repository issues](https://github.com/mitchcr/ONEVM/tree/main/RepositoryIssues/readme.md)  
 
+> [Storage besides LVM](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
+
 > [Stakeholders of a SSH Connection](https://github.com/mitchcr/ONEVM/tree/main/StakeholdersOfASSHConnection/readme.md)
 
-> [Storage besides LVM](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md)
+
