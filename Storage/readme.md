@@ -1,12 +1,16 @@
 # Storage besides LVM Laboratories
 
 [Lab 1: LVM](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md#lab-1--lvm)
+
 - [Scenario 1](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md#scenario-1)
 - [Scenario 2](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md#scenario-2)
 - [Scenario 3](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md#scenario-3)
 - [Scenario 4](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md#scenario-4)
+
 [Lab 2: Azure file share](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md#lab-2-azure-file-share)
+
 [Lab 3: Blobfuse](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md#lab-3-blobfuse2)
+
 [Lab 4: fstab options](https://github.com/mitchcr/ONEVM/blob/main/Storage/readme.md#laboratory-4--fstab-options)
 
 
