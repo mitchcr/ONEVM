@@ -79,7 +79,7 @@ __Note__: Replace the home directory \<YOURUSERID\> with your own when you list 
 
 `az group create --name specialist --location eastus`
 
-`az vm create --resource-group specialist --name specialistvm1 --admin-user azureuser --image UbuntuLTS --location eastus --generate-ssh-keys`
+`az vm create --resource-group specialist --name specialistvm1 --admin-user azureuser --image "Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest" --location eastus --generate-ssh-keys`
 
 __SSH key files are generated and located in /home/\<YOURUSERID\>/.ssh/id_rsa and /home/\<YOURUSERID\>/.ssh/id_rsa.pub second file is the public key.  If you're using a machine without permanent storage, back up your keys to a safe location.__
 
