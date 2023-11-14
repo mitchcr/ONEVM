@@ -62,7 +62,7 @@
       },
       "virtualNetworkName": {
         "type": "string",
-        "defaultValue": "vNet",
+        "defaultValue": "vmr",
         "metadata": {
           "description": "Name of the VNET"
         }
