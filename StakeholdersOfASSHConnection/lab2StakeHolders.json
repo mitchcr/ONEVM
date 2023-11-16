@@ -1,4 +1,19 @@
-"description": "The size of the VM"
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+      "_generator": {
+        "name": "bicep",
+        "version": "0.4.1.14562",
+        "templateHash": "16607361201936431976"
+      }
+    },
+    "parameters": {
+      "vmName": {
+        "type": "string",
+        "defaultValue": "sshlab1rhel",
+        "metadata": {
+          "description": "The name of you Virtual Machine."
         }
       },
       "virtualNetworkName": {
