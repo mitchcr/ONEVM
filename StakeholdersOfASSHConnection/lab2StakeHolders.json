@@ -11,7 +11,7 @@
     "parameters": {
       "vmName": {
         "type": "string",
-        "defaultValue": "sshlab1rhel",
+        "defaultValue": "sshlab2",
         "metadata": {
           "description": "The name of you Virtual Machine."
         }
