@@ -52,7 +52,7 @@
       },
       "virtualNetworkName": {
         "type": "string",
-        "defaultValue": "vNet",
+        "defaultValue": "vssh1Net",
         "metadata": {
           "description": "Name of the VNET"
         }
