@@ -428,12 +428,7 @@
           "publisher": "Microsoft.Azure.Extensions",
           "type": "CustomScript",
           "typeHandlerVersion": "2.1",
-          "autoUpgradeMinorVersion": true,
-          "protectedSettings": {
-          "fileUris": [
-          "https://raw.githubusercontent.com/mitchcr/ONEVM/main/Initrd/Lab3Initrd_Script.sh"
-          ]
-          }
+          "autoUpgradeMinorVersion": true
           }
       }
     ],
