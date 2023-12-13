@@ -652,7 +652,7 @@ Example:
 
 6.   Format created parition with XFS filesystem type.
 
-         mkfs.xfg <partition_path>
+         mkfs.xfs <partition_path>
 
      ![step3lab4](https://github.com/mitchcr/ONEVM/blob/main/Storage/images/step3lab4.jpg)
     
