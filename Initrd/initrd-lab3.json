@@ -375,7 +375,7 @@
               "publisher": "RedHat",
               "offer": "RHEL",
               "sku": "7-RAW",
-              "version": "7.2.2017090716"
+              "version": "7.4.2017120423"
             }
           },
           "networkProfile": {
