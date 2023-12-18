@@ -67,8 +67,6 @@
     }
   },
   "variables": {
-    "dataDisk1NameVM1": "[concat(uniquestring(parameters('vm1Name')), 'datadisk1')]",
-    "dataDisk2NameVM1": "[concat(uniquestring(parameters('vm1Name')), 'datadisk2')]",
     "imagePublisher": "RedHat",
     "imageOffer": "RHEL",
     "imageSku": "7-LVM",
@@ -383,21 +381,7 @@
             "offer": "RHEL",
             "sku": "7-LVM",
             "version": "latest"
-          },
-          "dataDisks": [
-            {
-              "name": "[variables('dataDisk1NameVM1')]",
-              "diskSizeGB": 10,
-              "lun": 0,
-              "createOption": "Empty"
-            },
-            {
-              "name": "[variables('dataDisk2NameVM1')]",
-              "diskSizeGB": 15,
-              "lun": 1,
-              "createOption": "Empty"
-            }
-          ]
+          }
         },
         "networkProfile": {
           "networkInterfaces": [
