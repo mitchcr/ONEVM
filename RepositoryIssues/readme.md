@@ -35,7 +35,7 @@ Update the VM from Red Hat 7.6 version to the latest version.
 
 As per the output the VM is having EUS repositories in it.
 
-We need to disable the EUS repositories and enable tne non-EUS repositories using the link [Switch a RHEL 7.x VM back to non-EUS (remove a version lock)](https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/redhat/redhat-rhui#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock)
+We need to disable the EUS repositories and enable the non-EUS repositories using the link [Switch a RHEL 7.x VM back to non-EUS (remove a version lock)](https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/redhat/redhat-rhui#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock)
 
 Post which you should be able to update the VM.
 
