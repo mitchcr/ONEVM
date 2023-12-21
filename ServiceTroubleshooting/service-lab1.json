@@ -52,7 +52,7 @@
       },
       "virtualNetworkName": {
         "type": "string",
-        "defaultValue": "collectosrhel",
+        "defaultValue": "servicelab1",
         "metadata": {
           "description": "Name of the VNET"
         }
