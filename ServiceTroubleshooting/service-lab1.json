@@ -52,7 +52,7 @@
       },
       "virtualNetworkName": {
         "type": "string",
-        "defaultValue": "servicelab1",
+        "defaultValue": "servicelabone",
         "metadata": {
           "description": "Name of the VNET"
         }
