@@ -19,7 +19,9 @@
 
   [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fInitrd%2fLab01.json)
 
-2. Check on the VM Serial Console log and Boot Diagnostics screenshot and Serial log to confirm the no-boot status.  VM is in a non-boot scenario due to corrupt initramfs/initrd for current kernel.
+2. Check on the VM Serial Console log and Boot Diagnostics screenshot and Serial log to confirm the no-boot status.  VM is in a non-boot scenario due to corrupt initramfs/initrd for current kernel. You'll find a screen with a kernel panic, example: 
+    ![initramfs file_corrupted](https://github.com/mitchcr/ONEVM/blob/main/Initrd/img/initramfs-lab1-error.png)
+
 3. Create a Repair VM and attach an OS disk copy of damage VM as data disk.
 4. Create and connect to a chroot environment following the public documentation: [Chroot environment in a Linux rescue VM](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/chroot-environment-linux)
 5. Take a backup of current iniramfs/initrd file using command **cp**
@@ -44,7 +46,7 @@ Once you've added the missing driver into the Initrd configuration file, make th
 
 ### Symptom
 
-![initramfs file corrupted](https://github.com/mitchcr/ONEVM/blob/main/Initrd/GutHub%20-%20initramfs%20-%20lab%202%20error.png)
+![initramfs driver_missing](https://github.com/mitchcr/ONEVM/blob/main/Initrd/GutHub%20-%20initramfs%20-%20lab%202%20error.png)
 
 ### Instructions
 
