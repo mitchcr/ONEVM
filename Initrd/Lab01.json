@@ -69,7 +69,7 @@
   "variables": {
     "imagePublisher": "RedHat",
     "imageOffer": "RHEL",
-    "imageSku": "7-LVM",
+    "imageSku": "9_2",
     "nicNameVM1": "[concat(uniquestring(parameters('vm1Name')), 'nic')]",
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
@@ -378,8 +378,8 @@
         "storageProfile": {
           "imageReference": {
             "publisher": "[variables('imagePublisher')]",
-            "offer": "RHEL",
-            "sku": "7-LVM",
+            "offer": "[variables('imageOffer')]",
+            "sku": "[variables('imageSku')]",
             "version": "latest"
           }
         },
