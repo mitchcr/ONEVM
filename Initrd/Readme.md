@@ -15,7 +15,7 @@
 ## Lab 1: Fix VM no boot issue caused by corrupt initrd/initramfs
 
 ### Instructions
-1. Deploy one RHEL 7.9 Broken VM using the link below: 
+1. Deploy a Red Had Broken VM using the link below: 
 
   [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fInitrd%2fLab01.json)
 
@@ -46,11 +46,11 @@ Once you've added the missing driver into the Initrd configuration file, make th
 
 ### Symptom
 
-![initramfs driver_missing](https://github.com/mitchcr/ONEVM/blob/main/Initrd/GutHub%20-%20initramfs%20-%20lab%202%20error.png)
+![initramfs driver_missing](https://github.com/mitchcr/ONEVM/blob/main/Initrd/img/initramfs-lab2-error.png)
 
 ### Instructions
 
-1.  Deploy one Broken RHEL 7.2 Gen1 without LVM VM using the link below:
+1.  Deploy one Broken Red Hat VM using the link below:
 
   [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fInitrd%2fLab02.json)
 
@@ -58,10 +58,10 @@ Once you've added the missing driver into the Initrd configuration file, make th
 3. Create a Repair VM environment and attach a OS disk copy to this environment as data disk.
 4. Create and connect to a chroot environment following the public documentation: [Chroot environment in a Linux rescue VM](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/chroot-environment-linux)
 5. Create a backup of the problematic initramfs using command *cp*
-6. Modify configuration and rebuild the Initrd for the current kernel using the command below (*Remember to include the correct path on the command*):
+6. Modify configuration file and comment out the line that says "omit_drivers+=" hv_storvsc " and add the add_drivers line like below.  Then, proceed to rebuild the initrd file for the current kernel using the command below (*Remember to include the correct path on the command*):
  
           #vi /etc/dracut.conf
-          add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+          add_drivers+=" hv_storvsc "
           #dracut -f -v <initramfsversion> <kernelversion>
 
 7. Exit chroot and unmount the OS disk copy from the troubleshooting VM, after you've done that, reassemble the original VM by switching the OS disk.
@@ -69,18 +69,23 @@ Once you've added the missing driver into the Initrd configuration file, make th
 8. The VM should be now able to boot after Initrd configuration gets changed.
 
 ## Lab 3: Fix VM non-boot issue caused by missing of all LIS driver in Initrd
-### Instructions
-1. Deploy one broken VM with RHEL 7.2 Gen 1 without LVM using the link below:
 
- [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fInitrd%2finitrd-lab3.json)
+### Symptom
+
+![initramfs driver_missing](https://github.com/mitchcr/ONEVM/blob/main/Initrd/img/initramfs-lab3-error.png)
+
+### Instructions
+1. Deploy one broken Red Hat VM using the link below:
+
+ [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fInitrd%Lab03.json)
 
 2. Check in Serial Console log and Boot Diagnostics that VM is in a non-boot scenario and check on the error.
 3. Create a Repair VM environment and attach a OS disk copy to this environment as data disk.
 4. Create and connect to a chroot environment following the public documentation: [Chroot environment in a Linux rescue VM](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/chroot-environment-linux)
-5. Modify configuration and rebuild the Initrd for the current kernel using the command below (*Remember to include the correct path on the command*):
+5. Modify configuration file and delete or comment out the line that says "omit_drivers+=" hv_vmbus hv_netvsc hv_storvsc " and add the line add_drivers as explained below.  Then, proceed to rebuild the initrd file for the current kernel using the command below (*Remember to include the correct path on the command*):
  
           #vi /etc/dracut.conf
-          add_drivers+="hv_vmbus hv_netvsc hv_storvsc" 
+          add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
           #dracut -f -v <initramfsversion> <kernelversion>
 
 6. Exit chroot and unmount the OS disk copy from the troubleshooting VM, after you've done that, reassemble the original VM by switching the OS disk.
