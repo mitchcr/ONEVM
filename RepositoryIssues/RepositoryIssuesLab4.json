@@ -73,7 +73,7 @@
       },
       "customData": {
         "type": "string",
-        "defaultValue": "IyEvYmluL2Jhc2gKCmNkIC9ldGMvcHJvZHVjdHMuZAp1bmxpbmsgYmFzZXByb2R1Y3QKbG4gLXMgc2xlLW1vZHVsZS10b29sY2hhaW4ucHJvZCBiYXNlcHJvZHVjdCAKcmVnaXN0ZXJjbG91ZGd1ZXN0IC0tZm9yY2UtbmV3CnNsZWVwIDEwCgo=",
+        "defaultValue": "",
         "metadata": {
           "description": "base64 content for cloud-init custom data"
         }
@@ -375,7 +375,7 @@
               "publisher": "SUSE",
               "offer": "sles-15-sp4",
               "sku": "gen1",
-              "version": "2023.05.06"
+              "version": "latest"
             }
           },
           "networkProfile": {
@@ -430,10 +430,7 @@
           "typeHandlerVersion": "2.1",
           "autoUpgradeMinorVersion": true,
           "protectedSettings": {
-          "commandToExecute": "[concat('sh RepositoryIssues-Lab4-breakscript.sh')]",
-          "fileUris": [
-          "https://raw.githubusercontent.com/mitchcr/ONEVM/main/RepositoryIssues/RepositoryIssues-Lab4-breakscript.sh"
-          ]
+          "script": "IyEvYmluL2Jhc2gKCmNkIC9ldGMvcHJvZHVjdHMuZAp1bmxpbmsgYmFzZXByb2R1Y3QKbG4gLXMgc2xlLW1vZHVsZS10b29sY2hhaW4ucHJvZCBiYXNlcHJvZHVjdCAKcmVnaXN0ZXJjbG91ZGd1ZXN0IC0tZm9yY2UtbmV3CnNsZWVwIDEwCgo="
           }
           }
       }
@@ -453,4 +450,3 @@
       }
     }
   }
-  
