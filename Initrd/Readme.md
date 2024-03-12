@@ -77,7 +77,7 @@ Once you've added the missing driver into the Initrd configuration file, make th
 ### Instructions
 1. Deploy one broken Red Hat VM using the link below:
 
- [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fInitrd%Lab03.json)
+   [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fInitrd%2fLab03.json)
 
 2. Check in Serial Console log and Boot Diagnostics that VM is in a non-boot scenario and check on the error.
 3. Create a Repair VM environment and attach a OS disk copy to this environment as data disk.
