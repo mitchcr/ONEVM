@@ -73,7 +73,7 @@
       },
       "customData": {
         "type": "string",
-        "defaultValue": "IyEvYmluL2Jhc2gKCiNJcHRhYmxlcyBzZXJ2aWNlcyBhcmUgbm90IGluc3RhbGxlZCBieSBkZWZhdWx0IG9uIFJIRUw3LCBzdGFydGluZyB0aGUgaXB0YWJsZXMgc2VydmljZXMuCgpzeXN0ZW1jdGwgc3RvcCBmaXJld2FsbGQKc3lzdGVtY3RsIG1hc2sgZmlyZXdhbGxkCnl1bSBpbnN0YWxsIC15IGlwdGFibGVzLXNlcnZpY2VzCnNsZWVwIDUKc3lzdGVtY3RsIHN0YXJ0IGlwdGFibGVzLnNlcnZpY2UK",
+        "defaultValue": "IyEvYmluL2Jhc2gKCiNJcHRhYmxlcyBzZXJ2aWNlcyBhcmUgbm90IGluc3RhbGxlZCBieSBkZWZhdWx0IG9uIFJIRUw3LCBzdGFydGluZyB0aGUgaXB0YWJsZXMgc2VydmljZXMuCgpzeXN0ZW1jdGwgc3RvcCBmaXJld2FsbGQKc3lzdGVtY3RsIG1hc2sgZmlyZXdhbGxkCnl1bSBpbnN0YWxsIC15IGlwdGFibGVzLXNlcnZpY2VzCnNsZWVwIDUKc2VkIC1pICcvXi1BL2QnIC9ldGMvc3lzY29uZmlnL2lwdGFibGVzCnN5c3RlbWN0bCBzdGFydCBpcHRhYmxlcy5zZXJ2aWNlCg==",
         "metadata": {
           "description": "base64 content for cloud-init custom data"
         }
