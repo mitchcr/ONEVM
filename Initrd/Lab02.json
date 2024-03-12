@@ -59,7 +59,7 @@
     },
     "subnetName": {
       "type": "string",
-      "defaultValue": "newtestsubnet",
+      "defaultValue": "initlab2",
       "metadata": {
         "description": "Name of the subnet in the virtual network"
       }
@@ -73,7 +73,7 @@
     },
     "customData": {
       "type": "string",
-      "defaultValue": "IyEvYmluL2Jhc2gKCiNDdXN0b20gc2NyaXB0IHRvIGRhbWFnZSBMYWIyIGZvciBJbml0cmQgbW9kdWxlLiAKCiNDb21tZW50aW5nIG91dCBhZGRfZHJpdmVycys9Imh2X3ZtYnVzaHZfbmV0dnNjaHZfc3RvcnZzYyIgaW4gL2V0Yy9kcmFjdXQuY29uZgpzZWQgLWkgJ3MvYWRkX2RyaXZlcnMrPSJodl92bWJ1cyBodl9uZXR2c2MgaHZfc3RvcnZzYyIvXCNhZGRfZHJpdmVycys9Imh2X3ZtYnVzIGh2X25ldHZzYyBodl9zdG9ydnNjIi8nIC9ldGMvZHJhY3V0LmNvbmYKCiNHZXQgdGhlIGh2X3N0b3J2c2MgbW9kdWxlIG5vdCBiZWNvbWluZyBwYXJ0IG9mIHRoZSBpbml0cmQgZmlsZS4gCmVjaG8gIm9taXRfZHJpdmVycys9XCJodl9zdG9ydnNjXCIiID4+IC9ldGMvZHJhY3V0LmNvbmYKCiNSZWNyZWF0ZSB0aGUgaW5pdHJkCmRyYWN1dCAtZiAvYm9vdC9pbml0cmFtZnMtMy4xMC4wLTMyNy41OS4xLmVsNy54ODZfNjQuaW1nIDMuMTAuMC0zMjcuNTkuMS5lbDcueDg2XzY0CgojUmVib290IHRoZSBWTQpyZWJvb3QK",
+      "defaultValue": "",
       "metadata": {
         "description": "base64 content for cloud-init custom data"
       }
@@ -374,8 +374,8 @@
           "imageReference": {
             "publisher": "RedHat",
             "offer": "RHEL",
-            "sku": "7-RAW",
-            "version": "7.4.2017120423"
+            "sku": "9_2",
+            "version": "latest"
           }
         },
         "networkProfile": {
@@ -429,13 +429,10 @@
 	    "type": "CustomScript",
 	    "typeHandlerVersion": "2.1",
 	    "autoUpgradeMinorVersion": true,
-	    "protectedSettings": {
-	    "commandToExecute": "[concat('sh Lab2Initrd_Script.sh')]",
-	    "fileUris": [
-	    "https://raw.githubusercontent.com/mitchcr/ONEVM/main/Initrd/Lab2Initrd_Script.sh"
-    	]
-	    }
+      "protectedSettings": {
+          "script": "IyEvYmluL2Jhc2gKCiNDdXN0b20gc2NyaXB0IHRvIGRhbWFnZSBMYWIyIGZvciBJbml0cmQgbW9kdWxlLiAKCiNDb21tZW50aW5nIG91dCBhZGRfZHJpdmVycys9Imh2X3ZtYnVzaHZfbmV0dnNjaHZfc3RvcnZzYyIgaW4gL2V0Yy9kcmFjdXQuY29uZgpzZWQgLWkgJ3MvYWRkX2RyaXZlcnMrPSJodl92bWJ1cyBodl9uZXR2c2MgaHZfc3RvcnZzYyIvXCNhZGRfZHJpdmVycys9Imh2X3ZtYnVzIGh2X25ldHZzYyBodl9zdG9ydnNjIi8nIC9ldGMvZHJhY3V0LmNvbmYKCiNHZXQgdGhlIGh2X3N0b3J2c2MgbW9kdWxlIG5vdCBiZWNvbWluZyBwYXJ0IG9mIHRoZSBpbml0cmQgZmlsZS4gCmVjaG8gIm9taXRfZHJpdmVycys9XCIgaHZfc3RvcnZzYyBcIiIgPj4gL2V0Yy9kcmFjdXQuY29uZgoKI1JlY3JlYXRlIHRoZSBpbml0cmQKa2VybmVsPWB1bmFtZSAtcmAKZHJhY3V0IC1mIC9ib290L2luaXRyYW1mcy0ka2VybmVsLmltZyAka2VybmVsCgojUmVib290IHRoZSBWTQpzaHV0ZG93biAtciArMQo="
         }
+      }
     }
   ],
   "outputs": {
