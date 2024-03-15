@@ -31,14 +31,14 @@ Duration 30~45 minutes.  If you do not finish this excersise in time, please let
 
 ### Instructions
 
->  In this exercise you will deploy one SuSE VM using the link below:
+1. In this exercise you will deploy one SuSE VM using the link below:
 
 [![Click to deploy](https://user-images.githubusercontent.com/129801457/229645043-e2349c38-7efd-4336-83c4-dab6897f9a7c.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fmitchcr%2fONEVM%2fmain%2fServiceTroubleshooting%2fservice-lab2.json)
 
->  Using systemd units, a web server needs to be run on port 8080 for only five minutes every hour.  This should be set up without using cron.
-   
-> You can use this python line to run a simple web server:
+2.  Using systemd units, a web server needs to be run on port 8080 for only five minutes every hour.  This should be set up without using cron.
+
+3. You can use this python line to run a simple web server:
 
             /usr/bin/python3 -m http.server 8080
 
-> Share your solution with the class. 
+4. Share your solution with the class. 
