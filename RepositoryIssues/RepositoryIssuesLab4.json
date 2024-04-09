@@ -373,7 +373,7 @@
             },
             "imageReference": {
               "publisher": "SUSE",
-              "offer": "sles-15-sp4-basic",
+              "offer": "sles-sap-15-sp4",
               "sku": "gen1",
               "version": "latest"
             }
