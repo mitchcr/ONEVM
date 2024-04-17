@@ -48,7 +48,7 @@
 
   4. Generate a report with all logs:
 
-     - Edit the sosreport configuration file /etc/sos.conf
+     - Edit the sosreport configuration file /etc/sos/sos.conf
      - Enable SELinux plugin
      - Run the report:
 
