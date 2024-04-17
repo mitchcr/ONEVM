@@ -618,7 +618,7 @@ Example:
 
 ### Instructions
 
-1.  For this laboratory we are going to use the same VM than previous laboratory.   Please proceed to connect to the VM using the SSH client you prefer, switch to root account and review the list of block devices attached to it with command:
+1.  For this laboratory we are going to use the same VM that was used in previous laboratory.   Please proceed to connect to the VM using the SSH client you prefer, switch to root account and review the list of block devices attached to it with command:
 
         sudo -i
         lsblk
