@@ -24,7 +24,7 @@
 
 #### At the Red Hat VM:
 
-  1. Chech that the sos package is installed, if not install it.
+  1. Check that the sos package is installed, if not install it.
 
   2. Switch to root account and generate a sosreport:
 
